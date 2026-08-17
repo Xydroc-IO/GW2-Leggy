@@ -434,7 +434,7 @@ a {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
-  z-index: 40;
+  z-index: 60;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -695,9 +695,10 @@ a {
 
 .craft-head {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
-  align-items: baseline;
+  align-items: flex-start;
   margin-bottom: 10px;
 }
 
@@ -713,6 +714,12 @@ a {
 .craft-head span {
   font-size: 0.68rem;
   color: var(--text-muted);
+}
+
+.craft-expand-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .craft-list {
@@ -1782,6 +1789,7 @@ a {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   overflow: hidden;
+  pointer-events: none;
 }
 
 .inst-bar i {
@@ -1797,11 +1805,15 @@ a {
 
 .inst-ach-btn {
   width: 100%;
+  display: block;
   text-align: left;
   color: inherit;
   cursor: pointer;
   font: inherit;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  position: relative;
+  z-index: 1;
 }
 
 .inst-ach-btn:hover,
