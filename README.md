@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="branding/logo.png" alt="GW2 Leggy — Legendary Tracker" width="480" />
+</p>
+
 # GW2 Leggy
 
 Unofficial Android app for tracking Guild Wars 2 legendary weapons, armor, backs, trinkets, runes, sigils, and relics — plus **Stash**, **Instances**, and **Wizard's Vault**, using only the official GW2 API.
@@ -47,6 +51,7 @@ Requirements: Node 18+, JDK 17, Android SDK, and `keystore/keystore.properties` 
 | [docs/PRIVACY_POLICY.md](docs/PRIVACY_POLICY.md) | Privacy policy (markdown) |
 | [docs/privacy-policy.html](docs/privacy-policy.html) | Hostable privacy page for Play |
 | [play-store/STORE_LISTING.md](play-store/STORE_LISTING.md) | Google Play listing + Data safety |
+| [play-store/RELEASE_NOTES.md](play-store/RELEASE_NOTES.md) | What’s new / release notes |
 | [play-store/README.md](play-store/README.md) | Store graphics + screenshots |
 | [FIND-THE-APK.md](FIND-THE-APK.md) | Where build outputs land |
 

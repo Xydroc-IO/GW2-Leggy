@@ -26,7 +26,9 @@ Upload at least 2 phone screenshots; tablets optional but prepared.
 
 ## Listing text
 
-See [STORE_LISTING.md](STORE_LISTING.md). Contact: **xydroc@yaplabs.us**.
+See [STORE_LISTING.md](STORE_LISTING.md).  
+Release / “What’s new” copy: [RELEASE_NOTES.md](RELEASE_NOTES.md).  
+Contact: **xydroc@yaplabs.us**.
 
 ## Still needed for submission
 
