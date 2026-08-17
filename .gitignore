@@ -1,15 +1,66 @@
+# Dependencies
 node_modules/
-.idea/
-*.iml
-.gradle/
-**/local.properties
-**/build/
-*.apk
-!GW2-Leggy.apk
-.DS_Store
+web/node_modules/
+
+# Web / Capacitor build outputs
+dist/
+web/dist/
 .capacitor/
 
-# Signing secrets — keep only the example file in git
-keystore/*.keystore
-keystore/keystore.properties
+# Android packages & bundles (never commit)
+*.apk
+*.aab
+*.ap_
+*.aar
+*.dex
+
+# Android / Gradle local & generated
+.gradle/
+**/build/
+**/local.properties
+android/.gradle/
+android/local.properties
+android/**/build/
+android/capacitor-cordova-android-plugins/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/app/src/main/res/xml/config.xml
+android/captures/
+android/.externalNativeBuild/
+android/.cxx/
+android/*.iml
+android/.idea/
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Logs & caches
+*.log
+npm-debug.log*
+.npm
+.cache/
+.turbo/
+coverage/
+.nyc_output/
+*.hprof
+
+# Secrets & signing (never commit real keystores)
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+**/keystore.properties
+keystore/*
 !keystore/keystore.properties.example
+google-services.json
+play-store-service-account.json
+**/secrets/
+**/credentials/
