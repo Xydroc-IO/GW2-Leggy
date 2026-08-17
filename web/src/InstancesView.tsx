@@ -50,8 +50,8 @@ function ProgressRow({
   onOpen?: (a: AchievementProgress) => void
 }) {
   const pct = a.max > 0 ? Math.min(100, Math.round((a.current / a.max) * 100)) : 0
-  const interactive = Boolean(onOpen && a.bits?.length)
-  const left = a.bits?.filter((b) => !b.done).length ?? 0
+  const interactive = Boolean(onOpen)
+  const left = a.bits?.filter((b) => !b.done).length
   const body = (
     <>
       <div className="inst-ach-top">
@@ -61,7 +61,11 @@ function ProgressRow({
       {a.detail && <p className="inst-ach-detail">{a.detail}</p>}
       {interactive && (
         <p className="inst-ach-hint">
-          {a.done ? 'Tap to see fractals' : `${left} left · tap for list`}
+          {a.done
+            ? 'Tap to see fractals'
+            : typeof left === 'number'
+              ? `${left} left · tap for list`
+              : 'Tap for fractal list'}
         </p>
       )}
       <div className="inst-bar" aria-hidden>

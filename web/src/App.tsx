@@ -138,15 +138,27 @@ export default function App() {
     setStashLoading(true)
     setStashError(null)
     try {
-      const snap = await fetchStashSnapshot(key)
+      const snap = await fetchStashSnapshot(key, {
+        onPartial: (partial) => {
+          setStash(partial)
+          setItemQty(quantitiesFromStash(partial))
+          setStashLoading(false)
+          const ids = collectStashItemIds(partial)
+          const cached = getCachedItemDetails(ids)
+          if (cached.size) setStashItems(cached)
+        },
+      })
       setStash(snap)
       setItemQty(quantitiesFromStash(snap))
 
       const ids = collectStashItemIds(snap)
       const cached = getCachedItemDetails(ids)
-      if (cached.size) setStashItems(cached)
+      if (cached.size) setStashItems((prev) => {
+        const next = new Map(prev)
+        for (const [id, info] of cached) next.set(id, info)
+        return next
+      })
 
-      // Stash is usable as soon as the snapshot lands; names/icons fill in after.
       setStashLoading(false)
 
       const detailsPromise = fetchItemDetails(ids, (partial) => {
@@ -192,7 +204,12 @@ export default function App() {
     setInstancesLoading(true)
     setInstancesError(null)
     try {
-      const snap = await fetchInstancesSnapshot(key)
+      const snap = await fetchInstancesSnapshot(key, {
+        onPartial: (partial) => {
+          setInstances(partial)
+          setInstancesLoading(false)
+        },
+      })
       setInstances(snap)
     } catch (err) {
       setInstancesError(err instanceof Error ? err.message : 'Failed to load instances')
@@ -206,7 +223,7 @@ export default function App() {
     setApiError(null)
     try {
       await validateApiKey(key)
-      // Fire stash/vault/instances in parallel with armory — don't wait on item-name hydration.
+      // Kick off heavy tabs immediately; don't block the sync spinner on them.
       const stashPromise = loadStash(key)
       const vaultPromise = loadVault(key)
       const instancesPromise = loadInstances(key)
@@ -220,7 +237,9 @@ export default function App() {
       setWalletQty(wallet)
       saveApiKey(key)
       setApiKey(key)
-      await Promise.all([stashPromise, vaultPromise, instancesPromise])
+      // Account header is ready — stash/inst/vault keep their own loading flags.
+      setSyncing(false)
+      void Promise.all([stashPromise, vaultPromise, instancesPromise])
     } catch (err) {
       setApiError(err instanceof Error ? err.message : 'Failed to sync')
       setAccountName(null)
@@ -231,7 +250,6 @@ export default function App() {
       setStashItems(new Map())
       setVault(null)
       setInstances(null)
-    } finally {
       setSyncing(false)
     }
   }
@@ -807,7 +825,7 @@ export default function App() {
           onClick={() => setMainTab('legendaries')}
         >
           <span aria-hidden>⚔</span>
-          Legs
+          Leggys
         </button>
         <button
           type="button"

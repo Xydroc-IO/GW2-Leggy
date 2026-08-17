@@ -256,7 +256,13 @@ export async function fetchItemPrices(
 }
 
 /** Structured bank / shared / materials / character bags for the Stash tab */
-export async function fetchStashSnapshot(key: string): Promise<StashSnapshot> {
+export async function fetchStashSnapshot(
+  key: string,
+  opts?: {
+    /** Called after bank/shared/materials land, before character bags finish. */
+    onPartial?: (snap: StashSnapshot) => void
+  },
+): Promise<StashSnapshot> {
   const [bankRaw, sharedRaw, matsRaw, charNames] = await Promise.all([
     authGet<ApiSlot[]>('/account/bank', key),
     authGet<ApiSlot[]>('/account/inventory', key),
@@ -277,17 +283,16 @@ export async function fetchStashSnapshot(key: string): Promise<StashSnapshot> {
     }))
 
   const names = charNames ?? []
-  // Fetch character inventories concurrently (GW2 allows this; batch was the main stall).
-  const details = await mapPool(names, 10, (name) =>
-    authGet<{
-      name: string
-      bags: ({
-        id: number
-        size: number
-        inventory: ApiSlot[]
-      } | null)[]
-    }>(`/characters/${encodeURIComponent(name)}`, key),
-  )
+  const partial: StashSnapshot = {
+    bank: mapSlots(bankRaw),
+    shared: mapSlots(sharedRaw),
+    materials,
+    characters: names.map((name) => ({ name, bags: [] })),
+    fetchedAt: Date.now(),
+  }
+  opts?.onPartial?.(partial)
+
+  const details = await fetchCharacterInventories(key, names)
 
   const characters: CharacterStash[] = names.map((name, j) => {
     const ch = details[j]
@@ -507,6 +512,106 @@ export async function fetchVaultSnapshot(key: string): Promise<VaultSnapshot> {
 const WEEKLY_FRACTAL_ACHIEVEMENTS = [5453, 5441, 5448, 5452] as const // Initiate → Master
 const DAILY_FRACTAL_CATEGORY = 88
 
+/** Shared bit labels for weekly fractal fighters (API bit indices). */
+const WEEKLY_FRACTAL_BIT_LABELS = [
+  'Aetherblade Fractal',
+  'Aquatic Ruins Fractal',
+  'Captain Mai Trin Boss Fractal',
+  'Chaos Fractal',
+  'Cliffside Fractal',
+  'Deepstone Fractal',
+  'Molten Boss Fractal',
+  'Molten Furnace',
+  'Nightmare Fractal',
+  'Shattered Observatory Fractal',
+  "Siren's Reef Fractal",
+  'Snowblind Fractal',
+  'Solid Ocean Fractal',
+  'Sunqua Peak Fractal',
+  'Swampland Fractal',
+  'Thaumanova Reactor Fractal',
+  'Twilight Oasis Fractal',
+  'Uncategorized Fractal',
+  'Underground Facility Fractal',
+  'Urban Battleground Fractal',
+  'Volcanic Fractal',
+  'Silent Surf Fractal',
+] as const
+
+const WEEKLY_FRACTAL_META: Record<
+  number,
+  { name: string; requirement: string; tiersMax: number }
+> = {
+  5453: {
+    name: 'Initiate Fractal Fighter',
+    requirement: 'Complete unique fractals at scales 1–25.',
+    tiersMax: 15,
+  },
+  5441: {
+    name: 'Adept Fractal Fighter',
+    requirement: 'Complete unique fractals at scales 26–50.',
+    tiersMax: 12,
+  },
+  5448: {
+    name: 'Expert Fractal Fighter',
+    requirement: 'Complete unique fractals at scales 51–75.',
+    tiersMax: 9,
+  },
+  5452: {
+    name: 'Master Fractal Fighter',
+    requirement: 'Complete unique fractals at scales 76–100.',
+    tiersMax: 6,
+  },
+}
+
+const SCHEMA_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000
+const RAID_SCHEMA_CACHE = 'gw2_leggy_raid_schema_v1'
+const DUNGEON_SCHEMA_CACHE = 'gw2_leggy_dungeon_schema_v1'
+const ACCT_ACH_CACHE = 'gw2_leggy_acct_ach_v1'
+const ACCT_ACH_TTL_MS = 2 * 60 * 1000
+
+type CharInventory = {
+  name: string
+  bags: ({
+    id: number
+    size: number
+    inventory: ApiSlot[]
+  } | null)[]
+}
+
+async function fetchCharacterInventories(
+  key: string,
+  names: string[],
+): Promise<(CharInventory | null)[]> {
+  if (!names.length) return []
+  // Bulk expand characters (far fewer round-trips than one request per name).
+  const chunks = chunkArray(names, 8)
+  const byName = new Map<string, CharInventory>()
+  await Promise.all(
+    chunks.map(async (slice) => {
+      const ids = slice.map(encodeURIComponent).join(',')
+      const batch = await authGet<CharInventory[]>(`/characters?ids=${ids}`, key)
+      if (Array.isArray(batch)) {
+        for (const ch of batch) {
+          if (ch?.name) byName.set(ch.name, ch)
+        }
+        return
+      }
+      // Fallback: parallel singles if bulk fails for this chunk
+      await mapPool(slice, 8, async (name) => {
+        const ch = await authGet<CharInventory>(
+          `/characters/${encodeURIComponent(name)}`,
+          key,
+        )
+        if (ch?.name) byName.set(ch.name, ch)
+        else if (ch) byName.set(name, { ...ch, name })
+        return null
+      })
+    }),
+  )
+  return names.map((n) => byName.get(n) ?? null)
+}
+
 const RAID_TITLES: Record<string, string> = {
   forsaken_thicket: 'Forsaken Thicket',
   bastion_of_the_penitent: 'Bastion of the Penitent',
@@ -574,8 +679,56 @@ async function fetchAccountAchievements(
     { current: number; max: number; done: boolean; bits: number[] }
   >()
   if (!ids.length) return out
-  // account/achievements returns all; filter client-side (no ids filter on this endpoint)
-  const all = await authGet<
+  const want = new Set(ids)
+  const applyRows = (
+    rows: {
+      id: number
+      current?: number
+      max?: number
+      done?: boolean
+      bits?: number[]
+    }[],
+  ) => {
+    for (const row of rows) {
+      if (!want.has(row.id)) continue
+      out.set(row.id, {
+        current: row.current ?? 0,
+        max: row.max ?? 0,
+        done: Boolean(row.done),
+        bits: row.bits ?? [],
+      })
+    }
+  }
+
+  // Prefer short TTL cache (full dump is huge).
+  try {
+    const raw = localStorage.getItem(ACCT_ACH_CACHE)
+    if (raw) {
+      const parsed = JSON.parse(raw) as {
+        savedAt: number
+        rows: {
+          id: number
+          current?: number
+          max?: number
+          done?: boolean
+          bits?: number[]
+        }[]
+      }
+      if (
+        parsed?.rows?.length &&
+        Date.now() - (parsed.savedAt ?? 0) < ACCT_ACH_TTL_MS
+      ) {
+        applyRows(parsed.rows)
+        return out
+      }
+    }
+  } catch {
+    /* fetch fresh */
+  }
+
+  // Try bulk ids first (supported on some GW2 API builds); fall back to full list.
+  const idQuery = ids.join(',')
+  let rows = await authGet<
     {
       id: number
       current?: number
@@ -583,19 +736,60 @@ async function fetchAccountAchievements(
       done?: boolean
       bits?: number[]
     }[]
-  >('/account/achievements', key)
-  if (!all) return out
-  const want = new Set(ids)
-  for (const row of all) {
-    if (!want.has(row.id)) continue
-    out.set(row.id, {
-      current: row.current ?? 0,
-      max: row.max ?? 0,
-      done: Boolean(row.done),
-      bits: row.bits ?? [],
-    })
+  >(`/account/achievements?ids=${idQuery}`, key)
+
+  if (!Array.isArray(rows)) {
+    rows = await authGet<
+      {
+        id: number
+        current?: number
+        max?: number
+        done?: boolean
+        bits?: number[]
+      }[]
+    >('/account/achievements', key)
   }
+
+  // Full dumps are huge — cache for a couple minutes.
+  if (rows && rows.length > ids.length + 20) {
+    try {
+      localStorage.setItem(
+        ACCT_ACH_CACHE,
+        JSON.stringify({ savedAt: Date.now(), rows }),
+      )
+    } catch {
+      /* ignore quota */
+    }
+  }
+
+  if (rows) applyRows(rows)
   return out
+}
+
+async function fetchCachedJson<T>(
+  cacheKey: string,
+  url: string,
+): Promise<T | null> {
+  try {
+    const raw = localStorage.getItem(cacheKey)
+    if (raw) {
+      const parsed = JSON.parse(raw) as { savedAt: number; data: T }
+      if (parsed?.data && Date.now() - (parsed.savedAt ?? 0) < SCHEMA_CACHE_TTL_MS) {
+        return parsed.data
+      }
+    }
+  } catch {
+    /* fetch */
+  }
+  const res = await fetch(url)
+  if (!res.ok) return null
+  const data = (await res.json()) as T
+  try {
+    localStorage.setItem(cacheKey, JSON.stringify({ savedAt: Date.now(), data }))
+  } catch {
+    /* ignore */
+  }
+  return data
 }
 
 async function fetchAchievementMeta(
@@ -610,6 +804,19 @@ async function fetchAchievementMeta(
     number,
     { name: string; requirement?: string; tiersMax?: number; bitLabels: string[] }
   >()
+  // Seed weekly fighters so UI stays clickable even if meta fetch fails.
+  for (const id of WEEKLY_FRACTAL_ACHIEVEMENTS) {
+    const seed = WEEKLY_FRACTAL_META[id]
+    if (seed) {
+      out.set(id, {
+        name: seed.name,
+        requirement: seed.requirement,
+        tiersMax: seed.tiersMax,
+        bitLabels: [...WEEKLY_FRACTAL_BIT_LABELS],
+      })
+    }
+  }
+
   const chunks = chunkArray([...new Set(ids)], 50)
   await Promise.all(
     chunks.map(async (slice) => {
@@ -626,13 +833,20 @@ async function fetchAchievementMeta(
         const tiersMax = a.tiers?.length
           ? Math.max(...a.tiers.map((t) => t.count))
           : undefined
-        const bitLabels = (a.bits ?? [])
+        const fromApi = (a.bits ?? [])
           .map((b) => (b.text ?? '').trim())
           .filter(Boolean)
+        const seeded = WEEKLY_FRACTAL_META[a.id]
+        const bitLabels =
+          fromApi.length > 0
+            ? fromApi
+            : seeded
+              ? [...WEEKLY_FRACTAL_BIT_LABELS]
+              : []
         out.set(a.id, {
           name: a.name,
-          requirement: a.requirement,
-          tiersMax,
+          requirement: a.requirement ?? seeded?.requirement,
+          tiersMax: tiersMax ?? seeded?.tiersMax,
           bitLabels,
         })
       }
@@ -641,29 +855,32 @@ async function fetchAchievementMeta(
   return out
 }
 
-export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnapshot> {
+export async function fetchInstancesSnapshot(
+  key: string,
+  opts?: { onPartial?: (snap: InstancesSnapshot) => void },
+): Promise<InstancesSnapshot> {
+  type RaidSchema = {
+    id: string
+    wings: {
+      id: string
+      events: { id: string; type: string }[]
+    }[]
+  }[]
+  type DungeonSchema = {
+    id: string
+    paths: { id: string; type: string }[]
+  }[]
+
   const [clearedRaw, raidsRaw, dungeonsSchema, clearedDungeons, fractalCat] =
     await Promise.all([
       authGet<string[]>('/account/raids', key),
-      fetch(`${API}/raids?ids=all`).then(async (r) =>
-        r.ok
-          ? ((await r.json()) as {
-              id: string
-              wings: {
-                id: string
-                events: { id: string; type: string }[]
-              }[]
-            }[])
-          : [],
+      fetchCachedJson<RaidSchema>(RAID_SCHEMA_CACHE, `${API}/raids?ids=all`).then(
+        (d) => d ?? [],
       ),
-      fetch(`${API}/dungeons?ids=all`).then(async (r) =>
-        r.ok
-          ? ((await r.json()) as {
-              id: string
-              paths: { id: string; type: string }[]
-            }[])
-          : [],
-      ),
+      fetchCachedJson<DungeonSchema>(
+        DUNGEON_SCHEMA_CACHE,
+        `${API}/dungeons?ids=all`,
+      ).then((d) => d ?? []),
       authGet<string[]>('/account/dungeons', key),
       // Today's daily fractals live here — ArenaNet rotates the ID list daily.
       // /achievements/daily is permanently inactive (Wizard's Vault era).
@@ -709,7 +926,6 @@ export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnap
     cleared: clearedSet.has(s.id),
   }))
 
-  // Any cleared IDs not in classic raids or our strike list → extra strike/encounter rows
   for (const id of clearedSet) {
     if (raidEncounterIds.has(id)) continue
     if (STRIKE_ENCOUNTERS.some((s) => s.id === id)) continue
@@ -721,8 +937,58 @@ export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnap
     })
   }
 
+  const dungeons: DungeonPathClear[] = []
+  for (const dg of dungeonsSchema) {
+    for (const path of dg.paths ?? []) {
+      if (path.type === 'Story') continue
+      dungeons.push({
+        dungeonId: dg.id,
+        dungeonName: prettyName(dg.id, DUNGEON_TITLES),
+        pathId: path.id,
+        pathName: prettyName(path.id),
+        cleared: clearedDungeonSet.has(path.id),
+      })
+    }
+  }
+
   const fractalDailyIds = [...(fractalCat?.achievements ?? [])]
   const fractalWeeklyIds = [...WEEKLY_FRACTAL_ACHIEVEMENTS]
+
+  // Instant weekly shells (clickable) while account achievement progress loads.
+  const weeklyShells: AchievementProgress[] = fractalWeeklyIds.map((id) => {
+    const seed = WEEKLY_FRACTAL_META[id]
+    return {
+      id,
+      name: seed?.name ?? `Achievement ${id}`,
+      current: 0,
+      max: seed?.tiersMax ?? 1,
+      done: false,
+      detail: seed?.requirement,
+      bits: WEEKLY_FRACTAL_BIT_LABELS.map((label, index) => ({
+        index,
+        label,
+        done: false,
+      })),
+    }
+  })
+
+  opts?.onPartial?.({
+    raids,
+    strikes,
+    fractalDaily: fractalDailyIds.map((id) => ({
+      id,
+      name: `Daily fractal ${id}`,
+      current: 0,
+      max: 1,
+      done: false,
+    })),
+    fractalWeekly: weeklyShells,
+    dungeons,
+    clearedEncounterIds: [...clearedSet],
+    scopeFail,
+    fetchedAt: Date.now(),
+  })
+
   const progressIds = [...fractalWeeklyIds, ...fractalDailyIds]
   const [acctProg, meta] = await Promise.all([
     fetchAccountAchievements(key, progressIds),
@@ -732,11 +998,13 @@ export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnap
   const toProgress = (id: number): AchievementProgress => {
     const m = meta.get(id)
     const p = acctProg.get(id)
-    const max = p?.max || m?.tiersMax || 1
+    const seed = WEEKLY_FRACTAL_META[id]
+    const max = p?.max || m?.tiersMax || seed?.tiersMax || 1
     const current = p?.done ? max : p?.current ?? 0
     const done = Boolean(p?.done) || current >= max
-    const labels = m?.bitLabels ?? []
-    // When done, ArenaNet omits in-progress bits — treat every listed bit as complete.
+    const labels =
+      (m?.bitLabels?.length ? m.bitLabels : null) ??
+      (seed ? [...WEEKLY_FRACTAL_BIT_LABELS] : [])
     const doneBits = done ? new Set(labels.map((_, i) => i)) : new Set(p?.bits ?? [])
     const bits =
       labels.length > 0
@@ -748,39 +1016,20 @@ export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnap
         : undefined
     return {
       id,
-      name: m?.name ?? `Achievement ${id}`,
+      name: m?.name ?? seed?.name ?? `Achievement ${id}`,
       current,
       max,
       done,
-      detail: m?.requirement,
+      detail: m?.requirement ?? seed?.requirement,
       bits,
-    }
-  }
-
-  const fractalWeekly = fractalWeeklyIds.map(toProgress)
-  const fractalDaily = fractalDailyIds
-    .map(toProgress)
-    .sort((a, b) => a.name.localeCompare(b.name))
-
-  const dungeons: DungeonPathClear[] = []
-  for (const dg of dungeonsSchema) {
-    for (const path of dg.paths ?? []) {
-      if (path.type === 'Story') continue // explorable paths are the daily clears
-      dungeons.push({
-        dungeonId: dg.id,
-        dungeonName: prettyName(dg.id, DUNGEON_TITLES),
-        pathId: path.id,
-        pathName: prettyName(path.id),
-        cleared: clearedDungeonSet.has(path.id),
-      })
     }
   }
 
   return {
     raids,
     strikes,
-    fractalDaily,
-    fractalWeekly,
+    fractalDaily: fractalDailyIds.map(toProgress).sort((a, b) => a.name.localeCompare(b.name)),
+    fractalWeekly: fractalWeeklyIds.map(toProgress),
     dungeons,
     clearedEncounterIds: [...clearedSet],
     scopeFail,
