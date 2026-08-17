@@ -18,7 +18,7 @@ GW2 Leggy is an **unofficial fan-made** application and is **not** affiliated wi
 
 ### Information you provide
 
-- **Guild Wars 2 API key (optional).** If you paste an API key, it is saved in the app’s local storage on your device. The key is used only to request your account-related data from the official Guild Wars 2 API (for example Legendary Armory unlocks, bank/stash, characters, wallet, Wizard’s Vault progress).
+- **Guild Wars 2 API key (optional).** If you paste an API key, it is saved in the app’s local storage on your device. The key is used only to request your account-related data from the official Guild Wars 2 API (for example Legendary Armory unlocks, bank/stash, characters, wallet, instance/raid progression, Wizard’s Vault progress).
 
 ### Information stored on device
 
@@ -39,7 +39,7 @@ The App requires network access (`INTERNET`) to call the Guild Wars 2 API and lo
 
 ## How information is used
 
-- To display legendary progress, stash, vault, and related features you request
+- To display legendary progress, stash, instances, vault, and related features you request
 - To validate your API key against the official API
 - To remember your preferences on the device
 

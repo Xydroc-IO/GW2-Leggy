@@ -2,6 +2,7 @@
   "name": "gw2-leggy",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "description": "GW2 Leggy — Guild Wars 2 legendary tracker Android app",
   "scripts": {
     "build:web": "npm --prefix web run build",

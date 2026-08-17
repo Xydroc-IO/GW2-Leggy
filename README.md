@@ -1,10 +1,8 @@
 # GW2 Leggy
 
-Unofficial Android app for tracking Guild Wars 2 legendary weapons, armor, backs, trinkets, runes, sigils, and relics — plus **Stash** and **Wizard's Vault**, using only the official GW2 API.
+Unofficial Android app for tracking Guild Wars 2 legendary weapons, armor, backs, trinkets, runes, sigils, and relics — plus **Stash**, **Instances**, and **Wizard's Vault**, using only the official GW2 API.
 
 **Package:** `com.gw2leggy.app` · **Version:** 1.0.0 (`versionCode` 1) · **Contact:** xydroc@yaplabs.us
-
-**Stack:** React + Vite → Capacitor → Android WebView
 
 ## Disclaimer
 
@@ -12,14 +10,15 @@ Unofficial Android app for tracking Guild Wars 2 legendary weapons, armor, backs
 
 ## How it works
 
-See **[docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md)** for a full walkthrough of the three tabs, filters, crafting, and API sync.
+See **[docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md)** for a full walkthrough of the tabs, filters, crafting, and API sync.
 
 Short version:
 
 1. **Legendaries** — browse ~99 catalog entries; search, pin, filter by expansion / gen; open crafting trees with checklists + TP estimates.
-2. **Connect API Key** (optional) — sync Legendary Armory unlocks, stash quantities, and Wizard’s Vault.
-3. **Stash** — bank, shared inventory, materials, character bags.
-4. **Vault** — daily / weekly / special objectives + Astral Acclaim.
+2. **Connect API Key** (optional) — sync Legendary Armory, stash, instances, and Wizard’s Vault.
+3. **Stash** — bank, shared inventory, materials, expandable character bags.
+4. **Inst** — weekly raids/strikes, fractal weeklies, daily dungeon paths.
+5. **Vault** — daily / weekly / special objectives + Astral Acclaim.
 
 API key stays on-device (`gw2_leggy_api_key`) and is sent only to `https://api.guildwars2.com`.
 
@@ -54,9 +53,7 @@ Requirements: Node 18+, JDK 17, Android SDK, and `keystore/keystore.properties` 
 ## Google Play
 
 - Listing copy + Data safety: `play-store/STORE_LISTING.md`
-- Icon / feature graphic: `play-store/`
-- Phone + tablet screenshots: `store-screenshots/` (phone root + `tablet-7/` + `tablet-10/`)
-- Release artifacts (gitignored): `play-store/GW2-Leggy-1.0.0.aab` / `.apk`
+- Release APK / AAB (gitignored): `play-store/GW2-Leggy-1.0.0.{apk,aab}` after `npm run build:release`
 - Privacy contact: **xydroc@yaplabs.us**
 
 ## Project layout

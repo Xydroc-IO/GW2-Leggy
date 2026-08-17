@@ -18,22 +18,23 @@ GW2 Leggy
 ## Short description (≤ 80 characters)
 
 ```text
-Track GW2 legendaries, stash, and Wizard’s Vault with the official API.
+Track GW2 legendaries, stash, instances, and Vault with the official API.
 ```
 
-(79 characters)
+(73 characters)
 
 ## Full description (≤ 4000 characters)
 
 ```text
 GW2 Leggy helps you track Guild Wars 2 legendary progress on Android — without a third-party website account.
 
-Browse legendary weapons, armor, back items, trinkets, runes, sigils, and relics with official names and icons. Open a crafting breakdown with checklist progress and Trading Post price estimates. Optionally connect a Guild Wars 2 API key to sync Legendary Armory unlocks, browse your stash (bank, shared inventory, materials, character bags), and track Wizard’s Vault daily, weekly, and special objectives plus Astral Acclaim.
+Browse legendary weapons, armor, back items, trinkets, runes, sigils, and relics with official names and icons. Open a crafting breakdown with checklist progress and Trading Post price estimates. Optionally connect a Guild Wars 2 API key to sync Legendary Armory unlocks, browse your stash (bank, shared inventory, materials, expandable character bags), check instance clears (raids, strikes, fractals, dungeons), and track Wizard’s Vault daily, weekly, and special objectives plus Astral Acclaim.
 
 FEATURES
 • Legendary catalog with search, pins, expansion filters, and weapon generation filters
 • Crafting trees with on-device checklist progress
-• Stash browser for bank tabs, shared slots, materials, and bags
+• Stash browser for bank tabs, shared slots, materials, and expandable character bags
+• Instances tracker for weekly raids/strikes, fractal weeklies, and daily dungeon paths
 • Wizard’s Vault tracker
 • Works offline for catalog browsing; sync uses ArenaNet’s official API only
 
