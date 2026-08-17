@@ -11,7 +11,7 @@ GW2 Leggy is a **standalone** companion: the UI runs in an Android WebView (Capa
 | **Inst** | Prompt to connect | Weekly raid/strike clears, daily + weekly fractals, daily dungeon paths |
 | **Vault** | Prompt to connect | Wizard’s Vault daily / weekly / special + Astral Acclaim |
 
-Bottom nav switches tabs. Header **Connect API Key** opens the key sheet from anywhere.
+Bottom nav: **Leggys** · **Stash** · **Inst** · **Vault**. Header **Connect API Key** opens the key sheet from anywhere.
 
 ## Legendaries tab
 
@@ -28,10 +28,12 @@ Tap a row for a detail sheet (pieces / unlock status when synced). Use **View Cr
 
 ### Crafting breakdown
 
-- Nested recipe components with checkboxes (saved on device).
+- Nested recipe components with checkboxes (saved on device) — trees expand by default.
+- **Expand all** / **Collapse all** for deep gift and material stacks (including T6 gifts → blood/claws/etc.).
 - Progress bar from checked items + inventory quantities when stash is synced.
-- Filter chips inside the sheet (Precursor, Gift, Clovers, T6, Currency, Map / WvW, etc.).
+- Category legend (Precursor, Gift, Clovers, T6, Currency, Map / WvW, etc.).
 - Trading Post unit estimates where prices are available from the public commerce API.
+- Icons use official item IDs; broken CDN URLs fall back to a live `/v2/items` lookup.
 - No key required to browse trees; key improves quantity / unlock context.
 
 ## API key sync
@@ -39,7 +41,7 @@ Tap a row for a detail sheet (pieces / unlock status when synced). Use **View Cr
 1. Tap **Connect API Key**.
 2. Paste a key from [account.arena.net/applications](https://account.arena.net/applications).
 3. Recommended permissions: `account`, `inventories`, `characters`, `wallet`, `unlocks`, `progression`.
-4. On save, the app validates the key, loads account name, Legendary Armory, stash, instances, and vault.
+4. On save, the app validates the key and loads account name + Legendary Armory quickly. Stash (bank first, then character bags), instances, and vault continue in the background with their own loading states.
 
 **Storage:** `localStorage` key `gw2_leggy_api_key` (plus favorites / checklist keys).  
 **Network:** HTTPS to `https://api.guildwars2.com` only. Remove the key in-app or clear app data anytime; revoke keys on ArenaNet’s site.

@@ -14,7 +14,7 @@ See **[docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md)** for a full walkthrough of t
 
 Short version:
 
-1. **Legendaries** — browse ~99 catalog entries; search, pin, filter by expansion / gen; open crafting trees with checklists + TP estimates.
+1. **Leggys** — browse ~99 catalog entries; search, pin, filter by expansion / gen; open full nested crafting trees with checklists + TP estimates.
 2. **Connect API Key** (optional) — sync Legendary Armory, stash, instances, and Wizard’s Vault.
 3. **Stash** — bank, shared inventory, materials, expandable character bags.
 4. **Inst** — weekly raids/strikes, daily fractals, tap weekly fighters for remaining unique fractals, daily dungeon paths.

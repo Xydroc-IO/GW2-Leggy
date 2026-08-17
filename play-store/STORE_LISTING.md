@@ -32,7 +32,7 @@ Browse legendary weapons, armor, back items, trinkets, runes, sigils, and relics
 
 FEATURES
 • Legendary catalog with search, pins, expansion filters, and weapon generation filters
-• Crafting trees with on-device checklist progress
+• Crafting trees with nested gifts/materials, expand/collapse, and on-device checklist progress
 • Stash browser for bank tabs, shared slots, materials, and expandable character bags
 • Instances tracker for weekly raids/strikes, daily + weekly fractals (tap weeklies for remaining unique fractals), and daily dungeon paths
 • Wizard’s Vault tracker
