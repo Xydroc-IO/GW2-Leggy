@@ -1795,6 +1795,86 @@ a {
   background: #5ecf88;
 }
 
+.inst-ach-btn {
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.inst-ach-btn:hover,
+.inst-ach-btn:focus-visible {
+  border-color: rgba(245, 186, 74, 0.45);
+  background: rgba(245, 186, 74, 0.06);
+  outline: none;
+}
+
+.inst-ach-hint {
+  margin: 0 0 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--amber);
+  opacity: 0.9;
+}
+
+.inst-fractal-sheet {
+  max-height: min(85vh, 640px);
+  overflow: auto;
+}
+
+.inst-bit-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 4px 0 12px;
+}
+
+.inst-bit-toolbar strong {
+  font-size: 0.82rem;
+}
+
+.inst-bit-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.inst-bit-list li {
+  display: grid;
+  grid-template-columns: 1.2rem 1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.22);
+  font-size: 0.86rem;
+}
+
+.inst-bit-list li.todo {
+  border-color: rgba(245, 186, 74, 0.28);
+}
+
+.inst-bit-list li.done {
+  opacity: 0.65;
+  color: var(--text-muted);
+}
+
+.inst-bit-list li span:first-child {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.inst-bit-list li.done span:first-child {
+  color: #7ddea0;
+}
+
 .inst-wing {
   padding: 12px;
   border-radius: 12px;

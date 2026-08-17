@@ -566,12 +566,23 @@ function prettyName(id: string, map?: Record<string, string>): string {
 async function fetchAccountAchievements(
   key: string,
   ids: number[],
-): Promise<Map<number, { current: number; max: number; done: boolean }>> {
-  const out = new Map<number, { current: number; max: number; done: boolean }>()
+): Promise<
+  Map<number, { current: number; max: number; done: boolean; bits: number[] }>
+> {
+  const out = new Map<
+    number,
+    { current: number; max: number; done: boolean; bits: number[] }
+  >()
   if (!ids.length) return out
   // account/achievements returns all; filter client-side (no ids filter on this endpoint)
   const all = await authGet<
-    { id: number; current?: number; max?: number; done?: boolean }[]
+    {
+      id: number
+      current?: number
+      max?: number
+      done?: boolean
+      bits?: number[]
+    }[]
   >('/account/achievements', key)
   if (!all) return out
   const want = new Set(ids)
@@ -581,6 +592,7 @@ async function fetchAccountAchievements(
       current: row.current ?? 0,
       max: row.max ?? 0,
       done: Boolean(row.done),
+      bits: row.bits ?? [],
     })
   }
   return out
@@ -588,8 +600,16 @@ async function fetchAccountAchievements(
 
 async function fetchAchievementMeta(
   ids: number[],
-): Promise<Map<number, { name: string; requirement?: string; tiersMax?: number }>> {
-  const out = new Map<number, { name: string; requirement?: string; tiersMax?: number }>()
+): Promise<
+  Map<
+    number,
+    { name: string; requirement?: string; tiersMax?: number; bitLabels: string[] }
+  >
+> {
+  const out = new Map<
+    number,
+    { name: string; requirement?: string; tiersMax?: number; bitLabels: string[] }
+  >()
   const chunks = chunkArray([...new Set(ids)], 50)
   await Promise.all(
     chunks.map(async (slice) => {
@@ -600,12 +620,21 @@ async function fetchAchievementMeta(
         name: string
         requirement?: string
         tiers?: { count: number }[]
+        bits?: { type?: string; text?: string }[]
       }[]
       for (const a of data) {
         const tiersMax = a.tiers?.length
           ? Math.max(...a.tiers.map((t) => t.count))
           : undefined
-        out.set(a.id, { name: a.name, requirement: a.requirement, tiersMax })
+        const bitLabels = (a.bits ?? [])
+          .map((b) => (b.text ?? '').trim())
+          .filter(Boolean)
+        out.set(a.id, {
+          name: a.name,
+          requirement: a.requirement,
+          tiersMax,
+          bitLabels,
+        })
       }
     }),
   )
@@ -613,7 +642,7 @@ async function fetchAchievementMeta(
 }
 
 export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnapshot> {
-  const [clearedRaw, raidsRaw, dungeonsSchema, clearedDungeons, dailyRes, fractalCat] =
+  const [clearedRaw, raidsRaw, dungeonsSchema, clearedDungeons, fractalCat] =
     await Promise.all([
       authGet<string[]>('/account/raids', key),
       fetch(`${API}/raids?ids=all`).then(async (r) =>
@@ -636,17 +665,8 @@ export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnap
           : [],
       ),
       authGet<string[]>('/account/dungeons', key),
-      fetch(`${API}/achievements/daily`).then(async (r) => {
-        const text = await r.text()
-        try {
-          return JSON.parse(text) as {
-            text?: string
-            pve?: { id: number }[]
-          }
-        } catch {
-          return { text: 'parse_error' }
-        }
-      }),
+      // Today's daily fractals live here — ArenaNet rotates the ID list daily.
+      // /achievements/daily is permanently inactive (Wizard's Vault era).
       fetch(`${API}/achievements/categories/${DAILY_FRACTAL_CATEGORY}`).then(async (r) =>
         r.ok ? ((await r.json()) as { achievements?: number[] }) : null,
       ),
@@ -701,15 +721,7 @@ export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnap
     })
   }
 
-  const dailyApiActive = !dailyRes?.text && Array.isArray(dailyRes?.pve)
-  const dailyFractalIdSet = new Set(fractalCat?.achievements ?? [])
-  let fractalDailyIds: number[] = []
-  if (dailyApiActive) {
-    fractalDailyIds = (dailyRes.pve ?? [])
-      .map((x) => x.id)
-      .filter((id) => dailyFractalIdSet.has(id))
-  }
-
+  const fractalDailyIds = [...(fractalCat?.achievements ?? [])]
   const fractalWeeklyIds = [...WEEKLY_FRACTAL_ACHIEVEMENTS]
   const progressIds = [...fractalWeeklyIds, ...fractalDailyIds]
   const [acctProg, meta] = await Promise.all([
@@ -723,6 +735,17 @@ export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnap
     const max = p?.max || m?.tiersMax || 1
     const current = p?.done ? max : p?.current ?? 0
     const done = Boolean(p?.done) || current >= max
+    const labels = m?.bitLabels ?? []
+    // When done, ArenaNet omits in-progress bits — treat every listed bit as complete.
+    const doneBits = done ? new Set(labels.map((_, i) => i)) : new Set(p?.bits ?? [])
+    const bits =
+      labels.length > 0
+        ? labels.map((label, index) => ({
+            index,
+            label,
+            done: doneBits.has(index),
+          }))
+        : undefined
     return {
       id,
       name: m?.name ?? `Achievement ${id}`,
@@ -730,11 +753,14 @@ export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnap
       max,
       done,
       detail: m?.requirement,
+      bits,
     }
   }
 
   const fractalWeekly = fractalWeeklyIds.map(toProgress)
-  const fractalDaily = fractalDailyIds.map(toProgress)
+  const fractalDaily = fractalDailyIds
+    .map(toProgress)
+    .sort((a, b) => a.name.localeCompare(b.name))
 
   const dungeons: DungeonPathClear[] = []
   for (const dg of dungeonsSchema) {
@@ -758,7 +784,6 @@ export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnap
     dungeons,
     clearedEncounterIds: [...clearedSet],
     scopeFail,
-    dailyApiActive,
     fetchedAt: Date.now(),
   }
 }

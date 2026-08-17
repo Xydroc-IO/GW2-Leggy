@@ -15,6 +15,12 @@ export type RaidWingClear = {
   totalBosses: number
 }
 
+export type AchievementBit = {
+  index: number
+  label: string
+  done: boolean
+}
+
 export type AchievementProgress = {
   id: number
   name: string
@@ -22,6 +28,8 @@ export type AchievementProgress = {
   max: number
   done: boolean
   detail?: string
+  /** Per-fractal bits when the achievement exposes them (weekly fighters). */
+  bits?: AchievementBit[]
 }
 
 export type DungeonPathClear = {
@@ -41,7 +49,5 @@ export type InstancesSnapshot = {
   clearedEncounterIds: string[]
   /** True when account/raids (and related) failed — usually missing progression scope */
   scopeFail: boolean
-  /** False when ArenaNet's /achievements/daily returns inactive */
-  dailyApiActive: boolean
   fetchedAt: number
 }

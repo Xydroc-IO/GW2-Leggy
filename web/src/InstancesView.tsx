@@ -42,17 +42,134 @@ interface Props {
 
 type InstSection = 'fractals' | 'raids' | 'strikes' | 'dungeons'
 
-function ProgressRow({ a }: { a: AchievementProgress }) {
+function ProgressRow({
+  a,
+  onOpen,
+}: {
+  a: AchievementProgress
+  onOpen?: (a: AchievementProgress) => void
+}) {
   const pct = a.max > 0 ? Math.min(100, Math.round((a.current / a.max) * 100)) : 0
-  return (
-    <div className={`inst-ach${a.done ? ' done' : ''}`}>
+  const interactive = Boolean(onOpen && a.bits?.length)
+  const left = a.bits?.filter((b) => !b.done).length ?? 0
+  const body = (
+    <>
       <div className="inst-ach-top">
         <strong>{a.name}</strong>
         <span>{a.done ? 'Done' : `${a.current}/${a.max}`}</span>
       </div>
       {a.detail && <p className="inst-ach-detail">{a.detail}</p>}
+      {interactive && (
+        <p className="inst-ach-hint">
+          {a.done ? 'Tap to see fractals' : `${left} left · tap for list`}
+        </p>
+      )}
       <div className="inst-bar" aria-hidden>
         <i style={{ width: `${a.done ? 100 : pct}%` }} />
+      </div>
+    </>
+  )
+
+  if (!interactive) {
+    return <div className={`inst-ach${a.done ? ' done' : ''}`}>{body}</div>
+  }
+
+  return (
+    <button
+      type="button"
+      className={`inst-ach inst-ach-btn${a.done ? ' done' : ''}`}
+      onClick={() => onOpen?.(a)}
+      aria-label={`${a.name}, ${a.done ? 'done' : `${a.current} of ${a.max}`}. Open remaining fractals.`}
+    >
+      {body}
+    </button>
+  )
+}
+
+function WeeklyFractalSheet({
+  achievement,
+  onClose,
+}: {
+  achievement: AchievementProgress
+  onClose: () => void
+}) {
+  const [hideDone, setHideDone] = useState(true)
+  const bits = achievement.bits ?? []
+  const remaining = bits.filter((b) => !b.done)
+  const completed = bits.filter((b) => b.done)
+  const shown = hideDone ? remaining : [...remaining, ...completed]
+
+  return (
+    <div
+      className="sheet-backdrop"
+      role="presentation"
+      onClick={onClose}
+      onKeyDown={(e) => {
+        if (e.key === 'Escape') onClose()
+      }}
+    >
+      <div
+        className="sheet inst-fractal-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-label={achievement.name}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="sheet-handle" />
+        <div className="sheet-top">
+          <div>
+            <h2>{achievement.name}</h2>
+            <div className="card-meta">
+              {achievement.done
+                ? 'Complete this week'
+                : `${achievement.current} / ${achievement.max} unique fractals`}
+            </div>
+            {achievement.detail ? <p className="desc">{achievement.detail}</p> : null}
+          </div>
+        </div>
+
+        <div className="inst-bit-toolbar">
+          <strong>
+            {remaining.length} remaining
+            {completed.length ? ` · ${completed.length} done` : ''}
+          </strong>
+          <button
+            type="button"
+            className="chip"
+            onClick={() => setHideDone((v) => !v)}
+            disabled={!completed.length}
+          >
+            {hideDone ? 'Show done' : 'Hide done'}
+          </button>
+        </div>
+
+        {shown.length === 0 ? (
+          <p className="stash-muted">
+            {achievement.done
+              ? 'All listed fractals are complete for this weekly.'
+              : 'No fractal list available from the API for this achievement.'}
+          </p>
+        ) : (
+          <ul className="inst-bit-list">
+            {shown.map((b) => (
+              <li key={b.index} className={b.done ? 'done' : 'todo'}>
+                <span aria-hidden>{b.done ? '✓' : '○'}</span>
+                <span>{b.label.replace(/ Fractal$/i, '')}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <p className="inst-footnote">
+          List comes from ArenaNet achievement bits. Newer fractals only appear after they add them
+          to the API.
+        </p>
+
+        <div className="sheet-actions">
+          <button type="button" className="primary" onClick={onClose}>
+            Close
+          </button>
+        </div>
       </div>
     </div>
   )
@@ -103,6 +220,7 @@ export default function InstancesView({
 }: Props) {
   const [section, setSection] = useState<InstSection>('fractals')
   const [hideCleared, setHideCleared] = useState(false)
+  const [selectedWeekly, setSelectedWeekly] = useState<AchievementProgress | null>(null)
 
   const raidSummary = useMemo(() => {
     if (!snapshot) return { cleared: 0, total: 0 }
@@ -265,25 +383,18 @@ export default function InstancesView({
               </div>
               <div className="inst-ach-list">
                 {snapshot.fractalWeekly.map((a) => (
-                  <ProgressRow key={a.id} a={a} />
+                  <ProgressRow key={a.id} a={a} onOpen={setSelectedWeekly} />
                 ))}
               </div>
 
               <div className="stash-panel-head" style={{ marginTop: 16 }}>
                 <h3>Daily Fractals</h3>
                 <span>
-                  {snapshot.dailyApiActive
-                    ? `${snapshot.fractalDaily.filter((a) => a.done).length}/${snapshot.fractalDaily.length}`
-                    : '—'}
+                  {snapshot.fractalDaily.filter((a) => a.done).length}/
+                  {snapshot.fractalDaily.length} done
                 </span>
               </div>
-              {!snapshot.dailyApiActive ? (
-                <p className="stash-muted">
-                  ArenaNet&apos;s daily achievements API is inactive right now, so today&apos;s
-                  specific fractal scales can&apos;t be listed. Weekly fractal fighters above still
-                  update normally.
-                </p>
-              ) : snapshot.fractalDaily.length === 0 ? (
+              {snapshot.fractalDaily.length === 0 ? (
                 <p className="stash-muted">No daily fractal achievements returned for today.</p>
               ) : (
                 <div className="inst-ach-list">
@@ -292,6 +403,7 @@ export default function InstancesView({
                   ))}
                 </div>
               )}
+              <p className="inst-footnote">Daily fractal scales reset at 00:00 UTC.</p>
             </div>
           )}
 
@@ -400,6 +512,13 @@ export default function InstancesView({
             </div>
           )}
         </>
+      )}
+
+      {selectedWeekly && (
+        <WeeklyFractalSheet
+          achievement={selectedWeekly}
+          onClose={() => setSelectedWeekly(null)}
+        />
       )}
     </div>
   )
