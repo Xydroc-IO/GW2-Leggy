@@ -15,6 +15,7 @@ export interface Gw2ItemInfo {
   rarity: ItemRarity | string
   level?: number
   type?: string
+  description?: string
 }
 
 export interface StashSlot {
@@ -22,6 +23,8 @@ export interface StashSlot {
   count: number
   /** bag/slot index for layout */
   index: number
+  /** Material storage category id from /v2/account/materials */
+  category?: number
 }
 
 export interface StashBag {
@@ -43,4 +46,4 @@ export interface StashSnapshot {
   fetchedAt: number
 }
 
-export type MainTab = 'legendaries' | 'stash' | 'vault'
+export type MainTab = 'legendaries' | 'stash' | 'vault' | 'instances'

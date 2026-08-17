@@ -4,9 +4,11 @@ import recipesById from './data/recipes.json'
 import CraftingBreakdown from './CraftingBreakdown'
 import StashView from './StashView'
 import VaultView from './VaultView'
+import InstancesView from './InstancesView'
 import type { Category, Legendary, RecipeComponent, SortMode } from './lib/types'
 import type { Gw2ItemInfo, MainTab, StashSnapshot } from './lib/stashTypes'
 import type { VaultSnapshot } from './lib/vaultTypes'
+import type { InstancesSnapshot } from './lib/instanceTypes'
 import {
   applyOwnership,
   cloneRecipe,
@@ -21,7 +23,9 @@ import {
   fetchLegendaryArmory,
   fetchStashSnapshot,
   fetchVaultSnapshot,
+  fetchInstancesSnapshot,
   fetchWalletQuantities,
+  getCachedItemDetails,
   loadApiKey,
   loadChecklist,
   loadFavorites,
@@ -107,6 +111,9 @@ export default function App() {
   const [vault, setVault] = useState<VaultSnapshot | null>(null)
   const [vaultLoading, setVaultLoading] = useState(false)
   const [vaultError, setVaultError] = useState<string | null>(null)
+  const [instances, setInstances] = useState<InstancesSnapshot | null>(null)
+  const [instancesLoading, setInstancesLoading] = useState(false)
+  const [instancesError, setInstancesError] = useState<string | null>(null)
   const [syncing, setSyncing] = useState(false)
   const [apiError, setApiError] = useState<string | null>(null)
 
@@ -127,18 +134,36 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  async function loadStash(key: string) {
+  async function loadStash(key: string, opts?: { awaitDetails?: boolean }) {
     setStashLoading(true)
     setStashError(null)
     try {
       const snap = await fetchStashSnapshot(key)
       setStash(snap)
       setItemQty(quantitiesFromStash(snap))
-      const details = await fetchItemDetails(collectStashItemIds(snap))
-      setStashItems(details)
+
+      const ids = collectStashItemIds(snap)
+      const cached = getCachedItemDetails(ids)
+      if (cached.size) setStashItems(cached)
+
+      // Stash is usable as soon as the snapshot lands; names/icons fill in after.
+      setStashLoading(false)
+
+      const detailsPromise = fetchItemDetails(ids, (partial) => {
+        setStashItems(new Map(partial))
+      })
+        .then((details) => {
+          setStashItems(details)
+          return details
+        })
+        .catch(() => {
+          // Keep any cached icons/names; stash snapshot already loaded.
+        })
+
+      if (opts?.awaitDetails) await detailsPromise
+      else void detailsPromise
     } catch (err) {
       setStashError(err instanceof Error ? err.message : 'Failed to load stash')
-    } finally {
       setStashLoading(false)
     }
   }
@@ -163,11 +188,28 @@ export default function App() {
     }
   }
 
+  async function loadInstances(key: string) {
+    setInstancesLoading(true)
+    setInstancesError(null)
+    try {
+      const snap = await fetchInstancesSnapshot(key)
+      setInstances(snap)
+    } catch (err) {
+      setInstancesError(err instanceof Error ? err.message : 'Failed to load instances')
+    } finally {
+      setInstancesLoading(false)
+    }
+  }
+
   async function syncAccount(key: string) {
     setSyncing(true)
     setApiError(null)
     try {
       await validateApiKey(key)
+      // Fire stash/vault/instances in parallel with armory — don't wait on item-name hydration.
+      const stashPromise = loadStash(key)
+      const vaultPromise = loadVault(key)
+      const instancesPromise = loadInstances(key)
       const [account, map, wallet] = await Promise.all([
         fetchAccountInfo(key),
         fetchLegendaryArmory(key),
@@ -178,7 +220,7 @@ export default function App() {
       setWalletQty(wallet)
       saveApiKey(key)
       setApiKey(key)
-      await Promise.all([loadStash(key), loadVault(key)])
+      await Promise.all([stashPromise, vaultPromise, instancesPromise])
     } catch (err) {
       setApiError(err instanceof Error ? err.message : 'Failed to sync')
       setAccountName(null)
@@ -188,6 +230,7 @@ export default function App() {
       setStash(null)
       setStashItems(new Map())
       setVault(null)
+      setInstances(null)
     } finally {
       setSyncing(false)
     }
@@ -626,7 +669,7 @@ export default function App() {
         <StashView
           snapshot={stash}
           items={stashItems}
-          loading={stashLoading || syncing}
+          loading={stashLoading}
           error={stashError}
           connected={Boolean(accountName)}
           onConnect={() => setApiOpen(true)}
@@ -640,13 +683,27 @@ export default function App() {
       {mainTab === 'vault' && (
         <VaultView
           snapshot={vault}
-          loading={vaultLoading || syncing}
+          loading={vaultLoading}
           error={vaultError}
           connected={Boolean(accountName)}
           onConnect={() => setApiOpen(true)}
           onRefresh={() => {
             const key = loadApiKey()
             if (key) void loadVault(key)
+          }}
+        />
+      )}
+
+      {mainTab === 'instances' && (
+        <InstancesView
+          snapshot={instances}
+          loading={instancesLoading}
+          error={instancesError}
+          connected={Boolean(accountName)}
+          onConnect={() => setApiOpen(true)}
+          onRefresh={() => {
+            const key = loadApiKey()
+            if (key) void loadInstances(key)
           }}
         />
       )}
@@ -677,9 +734,9 @@ export default function App() {
           >
             <h3>GW2 API Key</h3>
             <p>
-              Paste a key from account.arena.net to sync Legendary Armory, Stash, and Wizard&apos;s
-              Vault. Stored only on this device — GW2 Leggy talks only to the official Guild Wars 2
-              API.
+              Paste a key from account.arena.net to sync Legendary Armory, Stash, Instances, and
+              Wizard&apos;s Vault. Stored only on this device — GW2 Leggy talks only to the
+              official Guild Wars 2 API.
             </p>
             {apiError && <div className="error">{apiError}</div>}
             <input
@@ -716,6 +773,7 @@ export default function App() {
                     setStash(null)
                     setStashItems(new Map())
                     setVault(null)
+                    setInstances(null)
                   }}
                 >
                   Disconnect
@@ -749,7 +807,7 @@ export default function App() {
           onClick={() => setMainTab('legendaries')}
         >
           <span aria-hidden>⚔</span>
-          Legendaries
+          Legs
         </button>
         <button
           type="button"
@@ -758,6 +816,14 @@ export default function App() {
         >
           <span aria-hidden>▣</span>
           Stash
+        </button>
+        <button
+          type="button"
+          className={mainTab === 'instances' ? 'active' : ''}
+          onClick={() => setMainTab('instances')}
+        >
+          <span aria-hidden>⬡</span>
+          Inst
         </button>
         <button
           type="button"

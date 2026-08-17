@@ -6,6 +6,13 @@ import type {
   StashSnapshot,
 } from './stashTypes'
 import type { VaultBoard, VaultObjective, VaultSnapshot } from './vaultTypes'
+import type {
+  AchievementProgress,
+  DungeonPathClear,
+  EncounterClear,
+  InstancesSnapshot,
+  RaidWingClear,
+} from './instanceTypes'
 
 const API = 'https://api.guildwars2.com/v2'
 
@@ -13,6 +20,8 @@ const API = 'https://api.guildwars2.com/v2'
 export const API_KEY_STORAGE = 'gw2_leggy_api_key'
 export const FAVORITES_STORAGE = 'gw2_leggy_favorites'
 export const CHECKLIST_STORAGE = 'gw2_leggy_checklist'
+const ITEM_CACHE_STORAGE = 'gw2_leggy_item_cache_v1'
+const ITEM_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000
 
 const LEGACY_KEYS: Record<string, string[]> = {
   [API_KEY_STORAGE]: ['gw2_legendaries_user_api_key'],
@@ -34,6 +43,75 @@ function migrateKey(current: string) {
 migrateKey(API_KEY_STORAGE)
 migrateKey(FAVORITES_STORAGE)
 migrateKey(CHECKLIST_STORAGE)
+
+/** Run async work over items with a concurrency limit. */
+async function mapPool<T, R>(
+  items: T[],
+  concurrency: number,
+  fn: (item: T, index: number) => Promise<R>,
+): Promise<R[]> {
+  if (!items.length) return []
+  const results = new Array<R>(items.length)
+  let next = 0
+  const workers = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
+    while (true) {
+      const i = next++
+      if (i >= items.length) return
+      results[i] = await fn(items[i], i)
+    }
+  })
+  await Promise.all(workers)
+  return results
+}
+
+function chunkArray<T>(arr: T[], size: number): T[][] {
+  const out: T[][] = []
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size))
+  return out
+}
+
+type ItemCacheFile = { savedAt: number; items: Record<string, Gw2ItemInfo> }
+
+function readItemCache(): Map<number, Gw2ItemInfo> {
+  try {
+    const raw = localStorage.getItem(ITEM_CACHE_STORAGE)
+    if (!raw) return new Map()
+    const parsed = JSON.parse(raw) as ItemCacheFile
+    if (!parsed?.items || Date.now() - (parsed.savedAt ?? 0) > ITEM_CACHE_TTL_MS) {
+      return new Map()
+    }
+    const map = new Map<number, Gw2ItemInfo>()
+    for (const [k, v] of Object.entries(parsed.items)) {
+      const id = Number(k)
+      if (id && v?.name) map.set(id, v)
+    }
+    return map
+  } catch {
+    return new Map()
+  }
+}
+
+function writeItemCache(map: Map<number, Gw2ItemInfo>) {
+  try {
+    const items: Record<string, Gw2ItemInfo> = {}
+    for (const [id, info] of map) items[String(id)] = info
+    const payload: ItemCacheFile = { savedAt: Date.now(), items }
+    localStorage.setItem(ITEM_CACHE_STORAGE, JSON.stringify(payload))
+  } catch {
+    // Quota exceeded — ignore; sync still works without persistence.
+  }
+}
+
+/** Instant cache hit for stash icons/names (no network). */
+export function getCachedItemDetails(ids: number[]): Map<number, Gw2ItemInfo> {
+  const cache = readItemCache()
+  const out = new Map<number, Gw2ItemInfo>()
+  for (const id of ids) {
+    const hit = cache.get(id)
+    if (hit) out.set(id, hit)
+  }
+  return out
+}
 
 async function authGet<T>(path: string, key: string): Promise<T | null> {
   const res = await fetch(
@@ -159,20 +237,21 @@ export async function fetchItemPrices(
 ): Promise<Record<number, number>> {
   const unique = [...new Set(ids.filter(Boolean))]
   const out: Record<number, number> = {}
-  const chunk = 200
-  for (let i = 0; i < unique.length; i += chunk) {
-    const slice = unique.slice(i, i + chunk)
-    const res = await fetch(`${API}/commerce/prices?ids=${slice.join(',')}`)
-    if (!res.ok) continue
-    const data = (await res.json()) as {
-      id: number
-      sells?: { unit_price?: number }
-    }[]
-    for (const row of data) {
-      const price = row.sells?.unit_price
-      if (price) out[row.id] = price
-    }
-  }
+  const chunks = chunkArray(unique, 200)
+  await Promise.all(
+    chunks.map(async (slice) => {
+      const res = await fetch(`${API}/commerce/prices?ids=${slice.join(',')}`)
+      if (!res.ok) return
+      const data = (await res.json()) as {
+        id: number
+        sells?: { unit_price?: number }
+      }[]
+      for (const row of data) {
+        const price = row.sells?.unit_price
+        if (price) out[row.id] = price
+      }
+    }),
+  )
   return out
 }
 
@@ -190,42 +269,42 @@ export async function fetchStashSnapshot(key: string): Promise<StashSnapshot> {
 
   const materials: StashSlot[] = (matsRaw ?? [])
     .filter((m) => m.count > 0)
-    .map((m, index) => ({ id: m.id, count: m.count, index }))
+    .map((m, index) => ({
+      id: m.id,
+      count: m.count,
+      index,
+      category: m.category,
+    }))
 
-  const characters: CharacterStash[] = []
   const names = charNames ?? []
-  const batch = 6
-  for (let i = 0; i < names.length; i += batch) {
-    const slice = names.slice(i, i + batch)
-    const details = await Promise.all(
-      slice.map((name) =>
-        authGet<{
-          name: string
-          bags: ({
-            id: number
-            size: number
-            inventory: ApiSlot[]
-          } | null)[]
-        }>(`/characters/${encodeURIComponent(name)}`, key),
-      ),
-    )
-    for (let j = 0; j < slice.length; j++) {
-      const ch = details[j]
-      const bags: StashBag[] = []
-      if (ch?.bags) {
-        for (const bag of ch.bags) {
-          if (!bag) {
-            bags.push({ id: null, size: 0, slots: [] })
-            continue
-          }
-          const slots = mapSlots(bag.inventory)
-          while (slots.length < bag.size) slots.push(null)
-          bags.push({ id: bag.id, size: bag.size, slots })
+  // Fetch character inventories concurrently (GW2 allows this; batch was the main stall).
+  const details = await mapPool(names, 10, (name) =>
+    authGet<{
+      name: string
+      bags: ({
+        id: number
+        size: number
+        inventory: ApiSlot[]
+      } | null)[]
+    }>(`/characters/${encodeURIComponent(name)}`, key),
+  )
+
+  const characters: CharacterStash[] = names.map((name, j) => {
+    const ch = details[j]
+    const bags: StashBag[] = []
+    if (ch?.bags) {
+      for (const bag of ch.bags) {
+        if (!bag) {
+          bags.push({ id: null, size: 0, slots: [] })
+          continue
         }
+        const slots = mapSlots(bag.inventory)
+        while (slots.length < bag.size) slots.push(null)
+        bags.push({ id: bag.id, size: bag.size, slots })
       }
-      characters.push({ name: ch?.name ?? slice[j], bags })
     }
-  }
+    return { name: ch?.name ?? name, bags }
+  })
 
   return {
     bank: mapSlots(bankRaw),
@@ -238,33 +317,55 @@ export async function fetchStashSnapshot(key: string): Promise<StashSnapshot> {
 
 export async function fetchItemDetails(
   ids: number[],
+  onProgress?: (partial: Map<number, Gw2ItemInfo>) => void,
 ): Promise<Map<number, Gw2ItemInfo>> {
   const unique = [...new Set(ids.filter(Boolean))]
   const out = new Map<number, Gw2ItemInfo>()
-  const chunk = 200
-  for (let i = 0; i < unique.length; i += chunk) {
-    const slice = unique.slice(i, i + chunk)
-    const res = await fetch(`${API}/items?ids=${slice.join(',')}&lang=en`)
-    if (!res.ok) continue
-    const data = (await res.json()) as {
-      id: number
-      name: string
-      icon?: string
-      rarity?: string
-      level?: number
-      type?: string
-    }[]
-    for (const row of data) {
-      out.set(row.id, {
-        id: row.id,
-        name: row.name,
-        icon: row.icon,
-        rarity: row.rarity ?? 'Basic',
-        level: row.level,
-        type: row.type,
-      })
-    }
+  const cache = readItemCache()
+  const missing: number[] = []
+
+  for (const id of unique) {
+    const hit = cache.get(id)
+    if (hit) out.set(id, hit)
+    else missing.push(id)
   }
+
+  if (out.size && onProgress) onProgress(new Map(out))
+
+  if (!missing.length) return out
+
+  const chunks = chunkArray(missing, 200)
+  await Promise.all(
+    chunks.map(async (slice) => {
+      const res = await fetch(`${API}/items?ids=${slice.join(',')}&lang=en`)
+      if (!res.ok) return
+      const data = (await res.json()) as {
+        id: number
+        name: string
+        icon?: string
+        rarity?: string
+        level?: number
+        type?: string
+        description?: string
+      }[]
+      for (const row of data) {
+        const info: Gw2ItemInfo = {
+          id: row.id,
+          name: row.name,
+          icon: row.icon,
+          rarity: row.rarity ?? 'Basic',
+          level: row.level,
+          type: row.type,
+          description: row.description,
+        }
+        out.set(row.id, info)
+        cache.set(row.id, info)
+      }
+      if (onProgress) onProgress(new Map(out))
+    }),
+  )
+
+  writeItemCache(cache)
   return out
 }
 
@@ -279,6 +380,49 @@ export function collectStashItemIds(snap: StashSnapshot): number[] {
     }
   }
   return [...ids]
+}
+
+export type MaterialCategory = {
+  id: number
+  name: string
+  order: number
+}
+
+const MAT_CAT_CACHE = 'gw2_leggy_mat_categories_v1'
+const MAT_CAT_TTL_MS = 30 * 24 * 60 * 60 * 1000
+
+/** Official material-storage tab names (/v2/materials). Cached locally. */
+export async function fetchMaterialCategories(): Promise<MaterialCategory[]> {
+  try {
+    const raw = localStorage.getItem(MAT_CAT_CACHE)
+    if (raw) {
+      const parsed = JSON.parse(raw) as { savedAt: number; cats: MaterialCategory[] }
+      if (
+        parsed?.cats?.length &&
+        Date.now() - (parsed.savedAt ?? 0) < MAT_CAT_TTL_MS
+      ) {
+        return parsed.cats
+      }
+    }
+  } catch {
+    /* continue */
+  }
+
+  const res = await fetch(`${API}/materials?ids=all&lang=en`)
+  if (!res.ok) return []
+  const data = (await res.json()) as { id: number; name: string; order?: number }[]
+  const cats = data
+    .map((c) => ({ id: c.id, name: c.name, order: c.order ?? 999 }))
+    .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name))
+  try {
+    localStorage.setItem(
+      MAT_CAT_CACHE,
+      JSON.stringify({ savedAt: Date.now(), cats }),
+    )
+  } catch {
+    /* ignore */
+  }
+  return cats
 }
 
 /** Astral Acclaim wallet currency */
@@ -359,3 +503,263 @@ export async function fetchVaultSnapshot(key: string): Promise<VaultSnapshot> {
     fetchedAt: Date.now(),
   }
 }
+
+const WEEKLY_FRACTAL_ACHIEVEMENTS = [5453, 5441, 5448, 5452] as const // Initiate → Master
+const DAILY_FRACTAL_CATEGORY = 88
+
+const RAID_TITLES: Record<string, string> = {
+  forsaken_thicket: 'Forsaken Thicket',
+  bastion_of_the_penitent: 'Bastion of the Penitent',
+  hall_of_chains: 'Hall of Chains',
+  mythwright_gambit: 'Mythwright Gambit',
+  the_key_of_ahdashim: 'The Key of Ahdashim',
+  mount_balrior: 'Mount Balrior',
+  spirit_vale: 'Spirit Vale',
+  salvation_pass: 'Salvation Pass',
+  stronghold_of_the_faithful: 'Stronghold of the Faithful',
+}
+
+/** Former strike missions — now raid encounters. Checked against /account/raids. */
+const STRIKE_ENCOUNTERS: { id: string; name: string; group: string }[] = [
+  { id: 'shiverpeaks_pass', name: 'Shiverpeaks Pass', group: 'Icebrood Saga' },
+  {
+    id: 'voice_of_the_fallen_and_claw_of_the_fallen',
+    name: 'Voice & Claw of the Fallen',
+    group: 'Icebrood Saga',
+  },
+  { id: 'fraenir_of_jormag', name: 'Fraenir of Jormag', group: 'Icebrood Saga' },
+  { id: 'boneskinner', name: 'Boneskinner', group: 'Icebrood Saga' },
+  { id: 'whisper_of_jormag', name: 'Whisper of Jormag', group: 'Icebrood Saga' },
+  { id: 'forging_steel', name: 'Forging Steel', group: 'Icebrood Saga' },
+  { id: 'cold_war', name: 'Cold War', group: 'Icebrood Saga' },
+  { id: 'aetherblade_hideout', name: 'Aetherblade Hideout', group: 'End of Dragons' },
+  { id: 'xunlai_jade_junkyard', name: 'Xunlai Jade Junkyard', group: 'End of Dragons' },
+  { id: 'kaineng_overlook', name: 'Kaineng Overlook', group: 'End of Dragons' },
+  { id: 'harvest_temple', name: 'Harvest Temple', group: 'End of Dragons' },
+  { id: 'old_lions_court', name: "Old Lion's Court", group: 'Living World' },
+  { id: 'cosmic_observatory', name: 'Cosmic Observatory', group: 'Secrets of the Obscure' },
+  { id: 'temple_of_febe', name: 'Temple of Febe', group: 'Secrets of the Obscure' },
+]
+
+const DUNGEON_TITLES: Record<string, string> = {
+  ascalonian_catacombs: "Ascalonian Catacombs",
+  caudecus_manor: "Caudecus's Manor",
+  twilight_arbor: 'Twilight Arbor',
+  sorrows_embrace: "Sorrow's Embrace",
+  citadel_of_flame: 'Citadel of Flame',
+  honor_of_the_waves: 'Honor of the Waves',
+  crucible_of_eternity: 'Crucible of Eternity',
+  ruined_city_of_arah: 'The Ruined City of Arah',
+}
+
+function titleCaseId(id: string): string {
+  return id
+    .split('_')
+    .map((w) => (w.length ? w[0].toUpperCase() + w.slice(1) : w))
+    .join(' ')
+}
+
+function prettyName(id: string, map?: Record<string, string>): string {
+  return map?.[id] ?? titleCaseId(id)
+}
+
+async function fetchAccountAchievements(
+  key: string,
+  ids: number[],
+): Promise<Map<number, { current: number; max: number; done: boolean }>> {
+  const out = new Map<number, { current: number; max: number; done: boolean }>()
+  if (!ids.length) return out
+  // account/achievements returns all; filter client-side (no ids filter on this endpoint)
+  const all = await authGet<
+    { id: number; current?: number; max?: number; done?: boolean }[]
+  >('/account/achievements', key)
+  if (!all) return out
+  const want = new Set(ids)
+  for (const row of all) {
+    if (!want.has(row.id)) continue
+    out.set(row.id, {
+      current: row.current ?? 0,
+      max: row.max ?? 0,
+      done: Boolean(row.done),
+    })
+  }
+  return out
+}
+
+async function fetchAchievementMeta(
+  ids: number[],
+): Promise<Map<number, { name: string; requirement?: string; tiersMax?: number }>> {
+  const out = new Map<number, { name: string; requirement?: string; tiersMax?: number }>()
+  const chunks = chunkArray([...new Set(ids)], 50)
+  await Promise.all(
+    chunks.map(async (slice) => {
+      const res = await fetch(`${API}/achievements?ids=${slice.join(',')}&lang=en`)
+      if (!res.ok) return
+      const data = (await res.json()) as {
+        id: number
+        name: string
+        requirement?: string
+        tiers?: { count: number }[]
+      }[]
+      for (const a of data) {
+        const tiersMax = a.tiers?.length
+          ? Math.max(...a.tiers.map((t) => t.count))
+          : undefined
+        out.set(a.id, { name: a.name, requirement: a.requirement, tiersMax })
+      }
+    }),
+  )
+  return out
+}
+
+export async function fetchInstancesSnapshot(key: string): Promise<InstancesSnapshot> {
+  const [clearedRaw, raidsRaw, dungeonsSchema, clearedDungeons, dailyRes, fractalCat] =
+    await Promise.all([
+      authGet<string[]>('/account/raids', key),
+      fetch(`${API}/raids?ids=all`).then(async (r) =>
+        r.ok
+          ? ((await r.json()) as {
+              id: string
+              wings: {
+                id: string
+                events: { id: string; type: string }[]
+              }[]
+            }[])
+          : [],
+      ),
+      fetch(`${API}/dungeons?ids=all`).then(async (r) =>
+        r.ok
+          ? ((await r.json()) as {
+              id: string
+              paths: { id: string; type: string }[]
+            }[])
+          : [],
+      ),
+      authGet<string[]>('/account/dungeons', key),
+      fetch(`${API}/achievements/daily`).then(async (r) => {
+        const text = await r.text()
+        try {
+          return JSON.parse(text) as {
+            text?: string
+            pve?: { id: number }[]
+          }
+        } catch {
+          return { text: 'parse_error' }
+        }
+      }),
+      fetch(`${API}/achievements/categories/${DAILY_FRACTAL_CATEGORY}`).then(async (r) =>
+        r.ok ? ((await r.json()) as { achievements?: number[] }) : null,
+      ),
+    ])
+
+  const scopeFail = clearedRaw == null
+  const clearedSet = new Set(clearedRaw ?? [])
+  const clearedDungeonSet = new Set(clearedDungeons ?? [])
+
+  const raidEncounterIds = new Set<string>()
+  const raids: RaidWingClear[] = []
+  for (const raid of raidsRaw) {
+    for (const wing of raid.wings ?? []) {
+      const encounters: EncounterClear[] = (wing.events ?? []).map((e) => {
+        raidEncounterIds.add(e.id)
+        return {
+          id: e.id,
+          name: prettyName(e.id),
+          kind: e.type === 'Checkpoint' ? 'checkpoint' : 'boss',
+          cleared: clearedSet.has(e.id),
+        }
+      })
+      const bosses = encounters.filter((e) => e.kind === 'boss')
+      raids.push({
+        id: wing.id,
+        name: prettyName(wing.id, RAID_TITLES),
+        raidId: raid.id,
+        raidName: prettyName(raid.id, RAID_TITLES),
+        encounters,
+        clearedBosses: bosses.filter((b) => b.cleared).length,
+        totalBosses: bosses.length,
+      })
+    }
+  }
+
+  const strikes: EncounterClear[] = STRIKE_ENCOUNTERS.map((s) => ({
+    id: s.id,
+    name: s.name,
+    kind: 'strike' as const,
+    cleared: clearedSet.has(s.id),
+  }))
+
+  // Any cleared IDs not in classic raids or our strike list → extra strike/encounter rows
+  for (const id of clearedSet) {
+    if (raidEncounterIds.has(id)) continue
+    if (STRIKE_ENCOUNTERS.some((s) => s.id === id)) continue
+    strikes.push({
+      id,
+      name: prettyName(id),
+      kind: 'strike',
+      cleared: true,
+    })
+  }
+
+  const dailyApiActive = !dailyRes?.text && Array.isArray(dailyRes?.pve)
+  const dailyFractalIdSet = new Set(fractalCat?.achievements ?? [])
+  let fractalDailyIds: number[] = []
+  if (dailyApiActive) {
+    fractalDailyIds = (dailyRes.pve ?? [])
+      .map((x) => x.id)
+      .filter((id) => dailyFractalIdSet.has(id))
+  }
+
+  const fractalWeeklyIds = [...WEEKLY_FRACTAL_ACHIEVEMENTS]
+  const progressIds = [...fractalWeeklyIds, ...fractalDailyIds]
+  const [acctProg, meta] = await Promise.all([
+    fetchAccountAchievements(key, progressIds),
+    fetchAchievementMeta(progressIds),
+  ])
+
+  const toProgress = (id: number): AchievementProgress => {
+    const m = meta.get(id)
+    const p = acctProg.get(id)
+    const max = p?.max || m?.tiersMax || 1
+    const current = p?.done ? max : p?.current ?? 0
+    const done = Boolean(p?.done) || current >= max
+    return {
+      id,
+      name: m?.name ?? `Achievement ${id}`,
+      current,
+      max,
+      done,
+      detail: m?.requirement,
+    }
+  }
+
+  const fractalWeekly = fractalWeeklyIds.map(toProgress)
+  const fractalDaily = fractalDailyIds.map(toProgress)
+
+  const dungeons: DungeonPathClear[] = []
+  for (const dg of dungeonsSchema) {
+    for (const path of dg.paths ?? []) {
+      if (path.type === 'Story') continue // explorable paths are the daily clears
+      dungeons.push({
+        dungeonId: dg.id,
+        dungeonName: prettyName(dg.id, DUNGEON_TITLES),
+        pathId: path.id,
+        pathName: prettyName(path.id),
+        cleared: clearedDungeonSet.has(path.id),
+      })
+    }
+  }
+
+  return {
+    raids,
+    strikes,
+    fractalDaily,
+    fractalWeekly,
+    dungeons,
+    clearedEncounterIds: [...clearedSet],
+    scopeFail,
+    dailyApiActive,
+    fetchedAt: Date.now(),
+  }
+}
+
