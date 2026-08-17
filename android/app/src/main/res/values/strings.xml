@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GW2 Leggy</string>
+    <string name="title_activity_main">GW2 Leggy</string>
+    <string name="package_name">com.gw2leggy.app</string>
+    <string name="custom_url_scheme">com.gw2leggy.app</string>
+    <string name="disclaimer">GW2 Leggy is an unofficial fan-made application and is not affiliated with, endorsed by, sponsored by, or associated with NCSoft Corporation or ArenaNet, LLC. Guild Wars 2 and all related names, trademarks, logos, and other intellectual property belong to their respective owners.</string>
+</resources>
