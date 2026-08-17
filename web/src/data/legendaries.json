@@ -1,0 +1,2909 @@
+[
+  {
+    "id": "bolt",
+    "gw2ItemId": 30699,
+    "name": "Bolt",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Sword",
+    "expansion": "Core",
+    "description": "Legendary Sword.",
+    "defaultIcon": "https://render.guildwars2.com/file/FE47E046D10DF27508910869B5EB040F6BBBE793/456026.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Bolt",
+    "pieceIds": [
+      30699
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 30699,
+        "name": "Bolt",
+        "icon": "https://render.guildwars2.com/file/FE47E046D10DF27508910869B5EB040F6BBBE793/456026.png"
+      }
+    ]
+  },
+  {
+    "id": "eternity",
+    "gw2ItemId": 30689,
+    "name": "Eternity",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Greatsword",
+    "expansion": "Core",
+    "description": "Legendary Greatsword.",
+    "defaultIcon": "https://render.guildwars2.com/file/A30DA1A1EF05BD080C95AE2EF0067BADCDD0D89D/456014.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Eternity",
+    "pieceIds": [
+      30689
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30689,
+        "name": "Eternity",
+        "icon": "https://render.guildwars2.com/file/A30DA1A1EF05BD080C95AE2EF0067BADCDD0D89D/456014.png"
+      }
+    ]
+  },
+  {
+    "id": "frenzy",
+    "gw2ItemId": 30697,
+    "name": "Frenzy",
+    "category": "weapons",
+    "subCategory": "underwater",
+    "typeLabel": "Harpoon Gun",
+    "expansion": "Core",
+    "description": "Legendary Harpoon Gun.",
+    "defaultIcon": "https://render.guildwars2.com/file/67EB25E29BA73D96B34523C02B256516DD60DA06/456024.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Frenzy",
+    "pieceIds": [
+      30697
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30697,
+        "name": "Frenzy",
+        "icon": "https://render.guildwars2.com/file/67EB25E29BA73D96B34523C02B256516DD60DA06/456024.png"
+      }
+    ]
+  },
+  {
+    "id": "frostfang",
+    "gw2ItemId": 30684,
+    "name": "Frostfang",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Axe",
+    "expansion": "Core",
+    "description": "Legendary Axe.",
+    "defaultIcon": "https://render.guildwars2.com/file/0F9C08DE12ADD1082A103DC6EF7401281B23985E/456009.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Frostfang",
+    "pieceIds": [
+      30684
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 30684,
+        "name": "Frostfang",
+        "icon": "https://render.guildwars2.com/file/0F9C08DE12ADD1082A103DC6EF7401281B23985E/456009.png"
+      }
+    ]
+  },
+  {
+    "id": "howler",
+    "gw2ItemId": 30702,
+    "name": "Howler",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Warhorn",
+    "expansion": "Core",
+    "description": "Legendary Warhorn.",
+    "defaultIcon": "https://render.guildwars2.com/file/19E01CC637F4F370B43E132ACEBFD7C6E1570DE7/456029.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Howler",
+    "pieceIds": [
+      30702
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30702,
+        "name": "Howler",
+        "icon": "https://render.guildwars2.com/file/19E01CC637F4F370B43E132ACEBFD7C6E1570DE7/456029.png"
+      }
+    ]
+  },
+  {
+    "id": "incinerator",
+    "gw2ItemId": 30687,
+    "name": "Incinerator",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Dagger",
+    "expansion": "Core",
+    "description": "Legendary Dagger.",
+    "defaultIcon": "https://render.guildwars2.com/file/D9B12A1EBEDC04047295CF0A66E43E650297D429/456012.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Incinerator",
+    "pieceIds": [
+      30687
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 30687,
+        "name": "Incinerator",
+        "icon": "https://render.guildwars2.com/file/D9B12A1EBEDC04047295CF0A66E43E650297D429/456012.png"
+      }
+    ]
+  },
+  {
+    "id": "kamohoali-i-kotaki",
+    "gw2ItemId": 30691,
+    "name": "Kamohoali'i Kotaki",
+    "category": "weapons",
+    "subCategory": "underwater",
+    "typeLabel": "Spear",
+    "expansion": "Core",
+    "description": "Legendary Spear.",
+    "defaultIcon": "https://render.guildwars2.com/file/4705EC549A3296F493312C4018754816175E5D28/456016.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Kamohoali%27i_Kotaki",
+    "pieceIds": [
+      30691
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 30691,
+        "name": "Kamohoali'i Kotaki",
+        "icon": "https://render.guildwars2.com/file/4705EC549A3296F493312C4018754816175E5D28/456016.png"
+      }
+    ]
+  },
+  {
+    "id": "kraitkin",
+    "gw2ItemId": 30701,
+    "name": "Kraitkin",
+    "category": "weapons",
+    "subCategory": "underwater",
+    "typeLabel": "Trident",
+    "expansion": "Core",
+    "description": "Legendary Trident.",
+    "defaultIcon": "https://render.guildwars2.com/file/1FAD3D4BE1FA503C49FCF532582867FB060664E4/456028.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Kraitkin",
+    "pieceIds": [
+      30701
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30701,
+        "name": "Kraitkin",
+        "icon": "https://render.guildwars2.com/file/1FAD3D4BE1FA503C49FCF532582867FB060664E4/456028.png"
+      }
+    ]
+  },
+  {
+    "id": "kudzu",
+    "gw2ItemId": 30685,
+    "name": "Kudzu",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Longbow",
+    "expansion": "Core",
+    "description": "Legendary Longbow.",
+    "defaultIcon": "https://render.guildwars2.com/file/B604C764D3E19E391F5E24CCFBC414500606BD29/456010.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Kudzu",
+    "pieceIds": [
+      30685
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30685,
+        "name": "Kudzu",
+        "icon": "https://render.guildwars2.com/file/B604C764D3E19E391F5E24CCFBC414500606BD29/456010.png"
+      }
+    ]
+  },
+  {
+    "id": "meteorlogicus",
+    "gw2ItemId": 30695,
+    "name": "Meteorlogicus",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Scepter",
+    "expansion": "Core",
+    "description": "Legendary Scepter.",
+    "defaultIcon": "https://render.guildwars2.com/file/AC940BF377C5D3EF13B2060D53EF19F1BC34BE48/456020.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Meteorlogicus",
+    "pieceIds": [
+      30695
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30695,
+        "name": "Meteorlogicus",
+        "icon": "https://render.guildwars2.com/file/AC940BF377C5D3EF13B2060D53EF19F1BC34BE48/456020.png"
+      }
+    ]
+  },
+  {
+    "id": "quip",
+    "gw2ItemId": 30693,
+    "name": "Quip",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Pistol",
+    "expansion": "Core",
+    "description": "Legendary Pistol.",
+    "defaultIcon": "https://render.guildwars2.com/file/03342FFE0E35B35D5207B65ECB0C1D06442377AB/456018.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Quip",
+    "pieceIds": [
+      30693
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 30693,
+        "name": "Quip",
+        "icon": "https://render.guildwars2.com/file/03342FFE0E35B35D5207B65ECB0C1D06442377AB/456018.png"
+      }
+    ]
+  },
+  {
+    "id": "rodgort",
+    "gw2ItemId": 30700,
+    "name": "Rodgort",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Torch",
+    "expansion": "Core",
+    "description": "Legendary Torch.",
+    "defaultIcon": "https://render.guildwars2.com/file/B1D6CB3AB4017633280ACDB36470F46829FDDD13/456027.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Rodgort",
+    "pieceIds": [
+      30700
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30700,
+        "name": "Rodgort",
+        "icon": "https://render.guildwars2.com/file/B1D6CB3AB4017633280ACDB36470F46829FDDD13/456027.png"
+      }
+    ]
+  },
+  {
+    "id": "sunrise",
+    "gw2ItemId": 30703,
+    "name": "Sunrise",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Greatsword",
+    "expansion": "Core",
+    "description": "This weapon is used to craft the legendary greatsword Eternity by combining it in the Mystic Forge with:\n\u2022 Twilight\n\u2022 5 Piles of Crystalline Dust\n\u2022 10 Philosopher's Stones",
+    "defaultIcon": "https://render.guildwars2.com/file/EFF16C4F19792627355DC294E6D7093F544921E7/456030.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Sunrise",
+    "pieceIds": [
+      30703
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30703,
+        "name": "Sunrise",
+        "icon": "https://render.guildwars2.com/file/EFF16C4F19792627355DC294E6D7093F544921E7/456030.png"
+      }
+    ]
+  },
+  {
+    "id": "the-bifrost",
+    "gw2ItemId": 30698,
+    "name": "The Bifrost",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Staff",
+    "expansion": "Core",
+    "description": "Legendary Staff.",
+    "defaultIcon": "https://render.guildwars2.com/file/FD221A90427ADBD29B7E2DF8BDAF98BB16391162/456025.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_Bifrost",
+    "pieceIds": [
+      30698
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30698,
+        "name": "The Bifrost",
+        "icon": "https://render.guildwars2.com/file/FD221A90427ADBD29B7E2DF8BDAF98BB16391162/456025.png"
+      }
+    ]
+  },
+  {
+    "id": "the-dreamer",
+    "gw2ItemId": 30686,
+    "name": "The Dreamer",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Short Bow",
+    "expansion": "Core",
+    "description": "Legendary Short Bow.",
+    "defaultIcon": "https://render.guildwars2.com/file/98F0ED6A7F7A310FCE6D161C0B36B0071E4D1917/456011.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_Dreamer",
+    "pieceIds": [
+      30686
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30686,
+        "name": "The Dreamer",
+        "icon": "https://render.guildwars2.com/file/98F0ED6A7F7A310FCE6D161C0B36B0071E4D1917/456011.png"
+      }
+    ]
+  },
+  {
+    "id": "the-flameseeker-prophecies",
+    "gw2ItemId": 30696,
+    "name": "The Flameseeker Prophecies",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Shield",
+    "expansion": "Core",
+    "description": "Legendary Shield.",
+    "defaultIcon": "https://render.guildwars2.com/file/BE58181BEA0559E60873ED940D0408D0596B4464/456021.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_Flameseeker_Prophecies",
+    "pieceIds": [
+      30696
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30696,
+        "name": "The Flameseeker Prophecies",
+        "icon": "https://render.guildwars2.com/file/BE58181BEA0559E60873ED940D0408D0596B4464/456021.png"
+      }
+    ]
+  },
+  {
+    "id": "the-juggernaut",
+    "gw2ItemId": 30690,
+    "name": "The Juggernaut",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Hammer",
+    "expansion": "Core",
+    "description": "Legendary Hammer.",
+    "defaultIcon": "https://render.guildwars2.com/file/F9FAEDF77052A514E876145908B3B3346314A13E/456015.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_Juggernaut",
+    "pieceIds": [
+      30690
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30690,
+        "name": "The Juggernaut",
+        "icon": "https://render.guildwars2.com/file/F9FAEDF77052A514E876145908B3B3346314A13E/456015.png"
+      }
+    ]
+  },
+  {
+    "id": "the-minstrel",
+    "gw2ItemId": 30688,
+    "name": "The Minstrel",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Focus",
+    "expansion": "Core",
+    "description": "Legendary Focus.",
+    "defaultIcon": "https://render.guildwars2.com/file/D3DBEB4FE4C81401AF6EA905FE16E4F3050F540B/456013.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_Minstrel",
+    "pieceIds": [
+      30688
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30688,
+        "name": "The Minstrel",
+        "icon": "https://render.guildwars2.com/file/D3DBEB4FE4C81401AF6EA905FE16E4F3050F540B/456013.png"
+      }
+    ]
+  },
+  {
+    "id": "the-moot",
+    "gw2ItemId": 30692,
+    "name": "The Moot",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Mace",
+    "expansion": "Core",
+    "description": "Legendary Mace.",
+    "defaultIcon": "https://render.guildwars2.com/file/C0302BC8DDD84D20F0B73C1D702438F5534F3308/456017.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_Moot",
+    "pieceIds": [
+      30692
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 30692,
+        "name": "The Moot",
+        "icon": "https://render.guildwars2.com/file/C0302BC8DDD84D20F0B73C1D702438F5534F3308/456017.png"
+      }
+    ]
+  },
+  {
+    "id": "the-predator",
+    "gw2ItemId": 30694,
+    "name": "The Predator",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Rifle",
+    "expansion": "Core",
+    "description": "Legendary Rifle.",
+    "defaultIcon": "https://render.guildwars2.com/file/3ECD99482DD865AA7D42B2EF6AFEFA705294555C/456019.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_Predator",
+    "pieceIds": [
+      30694
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30694,
+        "name": "The Predator",
+        "icon": "https://render.guildwars2.com/file/3ECD99482DD865AA7D42B2EF6AFEFA705294555C/456019.png"
+      }
+    ]
+  },
+  {
+    "id": "twilight",
+    "gw2ItemId": 30704,
+    "name": "Twilight",
+    "category": "weapons",
+    "subCategory": "gen1",
+    "typeLabel": "Greatsword",
+    "expansion": "Core",
+    "description": "This weapon is used to craft the legendary greatsword Eternity by combining it in the Mystic Forge with:\n\u2022 Sunrise\n\u2022 5 Piles of Crystalline Dust\n\u2022 10 Philosopher's Stones",
+    "defaultIcon": "https://render.guildwars2.com/file/CE3AF0B7B9BB6244726779F5B6A930541BA6C15F/456031.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Twilight",
+    "pieceIds": [
+      30704
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 30704,
+        "name": "Twilight",
+        "icon": "https://render.guildwars2.com/file/CE3AF0B7B9BB6244726779F5B6A930541BA6C15F/456031.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-argument",
+    "gw2ItemId": 95808,
+    "name": "Aurene's Argument",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Pistol",
+    "expansion": "EoD",
+    "description": "Legendary Pistol.",
+    "defaultIcon": "https://render.guildwars2.com/file/42B56CCE6997200828B06B7652F5DEAC0507A95E/2595779.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Argument",
+    "pieceIds": [
+      95808
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 95808,
+        "name": "Aurene's Argument",
+        "icon": "https://render.guildwars2.com/file/42B56CCE6997200828B06B7652F5DEAC0507A95E/2595779.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-bite",
+    "gw2ItemId": 96356,
+    "name": "Aurene's Bite",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Greatsword",
+    "expansion": "EoD",
+    "description": "Legendary Greatsword.",
+    "defaultIcon": "https://render.guildwars2.com/file/94D19303448005274F24F433016D2CE1AC54057E/2594851.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Bite",
+    "pieceIds": [
+      96356
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 96356,
+        "name": "Aurene's Bite",
+        "icon": "https://render.guildwars2.com/file/94D19303448005274F24F433016D2CE1AC54057E/2594851.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-breath",
+    "gw2ItemId": 97099,
+    "name": "Aurene's Breath",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Torch",
+    "expansion": "EoD",
+    "description": "Legendary Torch.",
+    "defaultIcon": "https://render.guildwars2.com/file/C3B21B45AA1A47A1470FAFFC1BFD9E426FC29D5C/2596992.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Breath",
+    "pieceIds": [
+      97099
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 97099,
+        "name": "Aurene's Breath",
+        "icon": "https://render.guildwars2.com/file/C3B21B45AA1A47A1470FAFFC1BFD9E426FC29D5C/2596992.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-claw",
+    "gw2ItemId": 96203,
+    "name": "Aurene's Claw",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Dagger",
+    "expansion": "EoD",
+    "description": "Legendary Dagger.",
+    "defaultIcon": "https://render.guildwars2.com/file/08769D9DC9EC1A9D94EC19A802DA2106CB0CF741/2594358.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Claw",
+    "pieceIds": [
+      96203
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 96203,
+        "name": "Aurene's Claw",
+        "icon": "https://render.guildwars2.com/file/08769D9DC9EC1A9D94EC19A802DA2106CB0CF741/2594358.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-fang",
+    "gw2ItemId": 95675,
+    "name": "Aurene's Fang",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Sword",
+    "expansion": "EoD",
+    "description": "Legendary Sword.",
+    "defaultIcon": "https://render.guildwars2.com/file/CD7F0C7B39AE4529781EE126D7F4B8FDE220FAD3/2596930.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Fang",
+    "pieceIds": [
+      95675
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 95675,
+        "name": "Aurene's Fang",
+        "icon": "https://render.guildwars2.com/file/CD7F0C7B39AE4529781EE126D7F4B8FDE220FAD3/2596930.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-flight",
+    "gw2ItemId": 97590,
+    "name": "Aurene's Flight",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Longbow",
+    "expansion": "EoD",
+    "description": "Legendary Longbow.",
+    "defaultIcon": "https://render.guildwars2.com/file/F36B984CF57CF901A00526BAC1FA56979904C929/2593844.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Flight",
+    "pieceIds": [
+      97590
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 97590,
+        "name": "Aurene's Flight",
+        "icon": "https://render.guildwars2.com/file/F36B984CF57CF901A00526BAC1FA56979904C929/2593844.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-gaze",
+    "gw2ItemId": 97165,
+    "name": "Aurene's Gaze",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Focus",
+    "expansion": "EoD",
+    "description": "Legendary Focus.",
+    "defaultIcon": "https://render.guildwars2.com/file/3FFD5043BAB5710341A166C900BED8D47409600F/2594769.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Gaze",
+    "pieceIds": [
+      97165
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 97165,
+        "name": "Aurene's Gaze",
+        "icon": "https://render.guildwars2.com/file/3FFD5043BAB5710341A166C900BED8D47409600F/2594769.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-insight",
+    "gw2ItemId": 96652,
+    "name": "Aurene's Insight",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Staff",
+    "expansion": "EoD",
+    "description": "Legendary Staff.",
+    "defaultIcon": "https://render.guildwars2.com/file/3B74D76E0400CC03E17097CE5E0BEFC0325EAD21/2596889.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Insight",
+    "pieceIds": [
+      96652
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 96652,
+        "name": "Aurene's Insight",
+        "icon": "https://render.guildwars2.com/file/3B74D76E0400CC03E17097CE5E0BEFC0325EAD21/2596889.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-persuasion",
+    "gw2ItemId": 97377,
+    "name": "Aurene's Persuasion",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Rifle",
+    "expansion": "EoD",
+    "description": "Legendary Rifle.",
+    "defaultIcon": "https://render.guildwars2.com/file/7309BE5518786B002106F59110E7F9CDFE541969/2596715.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Persuasion",
+    "pieceIds": [
+      97377
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 97377,
+        "name": "Aurene's Persuasion",
+        "icon": "https://render.guildwars2.com/file/7309BE5518786B002106F59110E7F9CDFE541969/2596715.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-rending",
+    "gw2ItemId": 96937,
+    "name": "Aurene's Rending",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Axe",
+    "expansion": "EoD",
+    "description": "Legendary Axe.",
+    "defaultIcon": "https://render.guildwars2.com/file/7AE67A529B6960E955B8BCDE02343C704D01B7F8/2593577.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Rending",
+    "pieceIds": [
+      96937
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 96937,
+        "name": "Aurene's Rending",
+        "icon": "https://render.guildwars2.com/file/7AE67A529B6960E955B8BCDE02343C704D01B7F8/2593577.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-scale",
+    "gw2ItemId": 96028,
+    "name": "Aurene's Scale",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Shield",
+    "expansion": "EoD",
+    "description": "Legendary Shield.",
+    "defaultIcon": "https://render.guildwars2.com/file/4F29EC22EA359F2EAA01E2924F9CF0733F3CA2A9/2596828.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Scale",
+    "pieceIds": [
+      96028
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 96028,
+        "name": "Aurene's Scale",
+        "icon": "https://render.guildwars2.com/file/4F29EC22EA359F2EAA01E2924F9CF0733F3CA2A9/2596828.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-tail",
+    "gw2ItemId": 95612,
+    "name": "Aurene's Tail",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Mace",
+    "expansion": "EoD",
+    "description": "Legendary Mace.",
+    "defaultIcon": "https://render.guildwars2.com/file/A56EAC4E2EFA53EDC7ECFA7B9131AB32262269FD/2595159.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Tail",
+    "pieceIds": [
+      95612
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 95612,
+        "name": "Aurene's Tail",
+        "icon": "https://render.guildwars2.com/file/A56EAC4E2EFA53EDC7ECFA7B9131AB32262269FD/2595159.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-voice",
+    "gw2ItemId": 97783,
+    "name": "Aurene's Voice",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Warhorn",
+    "expansion": "EoD",
+    "description": "Legendary Warhorn.",
+    "defaultIcon": "https://render.guildwars2.com/file/480D1EBF4A468059631D11C100406AE1C617C3D4/2597054.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Voice",
+    "pieceIds": [
+      97783
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 97783,
+        "name": "Aurene's Voice",
+        "icon": "https://render.guildwars2.com/file/480D1EBF4A468059631D11C100406AE1C617C3D4/2597054.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-weight",
+    "gw2ItemId": 95684,
+    "name": "Aurene's Weight",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Hammer",
+    "expansion": "EoD",
+    "description": "Legendary Hammer.",
+    "defaultIcon": "https://render.guildwars2.com/file/C1B30BCF7A11E56066A46004262D01F67094B834/2595011.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Weight",
+    "pieceIds": [
+      95684
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 95684,
+        "name": "Aurene's Weight",
+        "icon": "https://render.guildwars2.com/file/C1B30BCF7A11E56066A46004262D01F67094B834/2595011.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-wing",
+    "gw2ItemId": 97077,
+    "name": "Aurene's Wing",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Short Bow",
+    "expansion": "EoD",
+    "description": "Legendary Short Bow.",
+    "defaultIcon": "https://render.guildwars2.com/file/15B9AECD7B05250D4D90721CE67ACBE0E8E3DEA1/2593873.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Wing",
+    "pieceIds": [
+      97077
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 97077,
+        "name": "Aurene's Wing",
+        "icon": "https://render.guildwars2.com/file/15B9AECD7B05250D4D90721CE67ACBE0E8E3DEA1/2593873.png"
+      }
+    ]
+  },
+  {
+    "id": "aurene-s-wisdom",
+    "gw2ItemId": 96221,
+    "name": "Aurene's Wisdom",
+    "category": "weapons",
+    "subCategory": "gen3",
+    "typeLabel": "Scepter",
+    "expansion": "EoD",
+    "description": "Legendary Scepter.",
+    "defaultIcon": "https://render.guildwars2.com/file/46C3662430F1CEA74CCB062FD248FC260D129B43/2596776.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurene%27s_Wisdom",
+    "pieceIds": [
+      96221
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 96221,
+        "name": "Aurene's Wisdom",
+        "icon": "https://render.guildwars2.com/file/46C3662430F1CEA74CCB062FD248FC260D129B43/2596776.png"
+      }
+    ]
+  },
+  {
+    "id": "astralaria",
+    "gw2ItemId": 76158,
+    "name": "Astralaria",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Axe",
+    "expansion": "HoT",
+    "description": "Legendary Axe.",
+    "defaultIcon": "https://render.guildwars2.com/file/13B9B1A4A85E775E267D33B6B7FA2D436DEA0BA1/1200325.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Astralaria",
+    "pieceIds": [
+      76158
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 76158,
+        "name": "Astralaria",
+        "icon": "https://render.guildwars2.com/file/13B9B1A4A85E775E267D33B6B7FA2D436DEA0BA1/1200325.png"
+      }
+    ]
+  },
+  {
+    "id": "chuka-and-champawat",
+    "gw2ItemId": 78556,
+    "name": "Chuka and Champawat",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Short Bow",
+    "expansion": "HoT",
+    "description": "Legendary Short Bow.",
+    "defaultIcon": "https://render.guildwars2.com/file/6AA4DCD7BFD228EF1658DE017FF114700260D316/1423757.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Chuka_and_Champawat",
+    "pieceIds": [
+      78556
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 78556,
+        "name": "Chuka and Champawat",
+        "icon": "https://render.guildwars2.com/file/6AA4DCD7BFD228EF1658DE017FF114700260D316/1423757.png"
+      }
+    ]
+  },
+  {
+    "id": "hope",
+    "gw2ItemId": 72713,
+    "name": "HOPE",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Pistol",
+    "expansion": "HoT",
+    "description": "Legendary Pistol.",
+    "defaultIcon": "https://render.guildwars2.com/file/08DBF1507C304507F618C0C4217E96074E1DD4EB/1204299.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/HOPE",
+    "pieceIds": [
+      72713
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 72713,
+        "name": "HOPE",
+        "icon": "https://render.guildwars2.com/file/08DBF1507C304507F618C0C4217E96074E1DD4EB/1204299.png"
+      }
+    ]
+  },
+  {
+    "id": "nevermore",
+    "gw2ItemId": 71383,
+    "name": "Nevermore",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Staff",
+    "expansion": "HoT",
+    "description": "Legendary Staff.",
+    "defaultIcon": "https://render.guildwars2.com/file/5346383A9218504978A57642D9F664DB6EE9984D/1206505.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Nevermore",
+    "pieceIds": [
+      71383
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 71383,
+        "name": "Nevermore",
+        "icon": "https://render.guildwars2.com/file/5346383A9218504978A57642D9F664DB6EE9984D/1206505.png"
+      }
+    ]
+  },
+  {
+    "id": "klobjarne-geirr",
+    "gw2ItemId": 103815,
+    "name": "Klobjarne Geirr",
+    "category": "weapons",
+    "subCategory": "underwater",
+    "typeLabel": "Spear",
+    "expansion": "JW",
+    "description": "Legendary Spear.",
+    "defaultIcon": "https://render.guildwars2.com/file/BC680270399F49A15415E402623AD4E5A09A6411/3442617.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Klobjarne_Geirr",
+    "pieceIds": [
+      103815
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 103815,
+        "name": "Klobjarne Geirr",
+        "icon": "https://render.guildwars2.com/file/BC680270399F49A15415E402623AD4E5A09A6411/3442617.png"
+      }
+    ]
+  },
+  {
+    "id": "claw-of-the-khan-ur",
+    "gw2ItemId": 87109,
+    "name": "Claw of the Khan-Ur",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Dagger",
+    "expansion": "PoF",
+    "description": "Legendary Dagger.",
+    "defaultIcon": "https://render.guildwars2.com/file/0F210EEC4136273F5224D21C28F50B48B4AA5756/1947147.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Claw_of_the_Khan-Ur",
+    "pieceIds": [
+      87109
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 87109,
+        "name": "Claw of the Khan-Ur",
+        "icon": "https://render.guildwars2.com/file/0F210EEC4136273F5224D21C28F50B48B4AA5756/1947147.png"
+      }
+    ]
+  },
+  {
+    "id": "eureka",
+    "gw2ItemId": 79562,
+    "name": "Eureka",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Mace",
+    "expansion": "PoF",
+    "description": "Legendary Mace.",
+    "defaultIcon": "https://render.guildwars2.com/file/D24F4476F94842E4A8B1F9650DA92A72B590DC02/1493252.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Eureka",
+    "pieceIds": [
+      79562
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 79562,
+        "name": "Eureka",
+        "icon": "https://render.guildwars2.com/file/D24F4476F94842E4A8B1F9650DA92A72B590DC02/1493252.png"
+      }
+    ]
+  },
+  {
+    "id": "exordium",
+    "gw2ItemId": 90551,
+    "name": "Exordium",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Greatsword",
+    "expansion": "PoF",
+    "description": "Legendary Greatsword.",
+    "defaultIcon": "https://render.guildwars2.com/file/DCFDE7D52BBB71A34C06987C1798D5FDDC74B94A/2140499.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Exordium",
+    "pieceIds": [
+      90551
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 90551,
+        "name": "Exordium",
+        "icon": "https://render.guildwars2.com/file/DCFDE7D52BBB71A34C06987C1798D5FDDC74B94A/2140499.png"
+      }
+    ]
+  },
+  {
+    "id": "flames-of-war",
+    "gw2ItemId": 81206,
+    "name": "Flames of War",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Torch",
+    "expansion": "PoF",
+    "description": "Legendary Torch.",
+    "defaultIcon": "https://render.guildwars2.com/file/0D4399FD6BC23DEF9DB32CBC49029C93682FFBC9/1676632.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Flames_of_War",
+    "pieceIds": [
+      81206
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 81206,
+        "name": "Flames of War",
+        "icon": "https://render.guildwars2.com/file/0D4399FD6BC23DEF9DB32CBC49029C93682FFBC9/1676632.png"
+      }
+    ]
+  },
+  {
+    "id": "pharus",
+    "gw2ItemId": 89854,
+    "name": "Pharus",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Longbow",
+    "expansion": "PoF",
+    "description": "Legendary Longbow.",
+    "defaultIcon": "https://render.guildwars2.com/file/D2C5CF133804E1062B08370044E774F854F107F5/2083170.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Pharus",
+    "pieceIds": [
+      89854
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 89854,
+        "name": "Pharus",
+        "icon": "https://render.guildwars2.com/file/D2C5CF133804E1062B08370044E774F854F107F5/2083170.png"
+      }
+    ]
+  },
+  {
+    "id": "sharur",
+    "gw2ItemId": 81839,
+    "name": "Sharur",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Hammer",
+    "expansion": "PoF",
+    "description": "Legendary Hammer.",
+    "defaultIcon": "https://render.guildwars2.com/file/BD331EF87CDCD678D22D4DF9B509E22C4606AAB6/1729253.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Sharur",
+    "pieceIds": [
+      81839
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 81839,
+        "name": "Sharur",
+        "icon": "https://render.guildwars2.com/file/BD331EF87CDCD678D22D4DF9B509E22C4606AAB6/1729253.png"
+      }
+    ]
+  },
+  {
+    "id": "shooshadoo",
+    "gw2ItemId": 79802,
+    "name": "Shooshadoo",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Shield",
+    "expansion": "PoF",
+    "description": "Legendary Shield.",
+    "defaultIcon": "https://render.guildwars2.com/file/7EE6042646197A0B6A0EF21E419645ED175564F5/1601552.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Shooshadoo",
+    "pieceIds": [
+      79802
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 79802,
+        "name": "Shooshadoo",
+        "icon": "https://render.guildwars2.com/file/7EE6042646197A0B6A0EF21E419645ED175564F5/1601552.png"
+      }
+    ]
+  },
+  {
+    "id": "the-binding-of-ipos",
+    "gw2ItemId": 86098,
+    "name": "The Binding of Ipos",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Focus",
+    "expansion": "PoF",
+    "description": "Legendary Focus.",
+    "defaultIcon": "https://render.guildwars2.com/file/2C2D04DA23E54103AD4C082033090D78A91BA0EE/1894811.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_Binding_of_Ipos",
+    "pieceIds": [
+      86098
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 86098,
+        "name": "The Binding of Ipos",
+        "icon": "https://render.guildwars2.com/file/2C2D04DA23E54103AD4C082033090D78A91BA0EE/1894811.png"
+      }
+    ]
+  },
+  {
+    "id": "the-hms-divinity",
+    "gw2ItemId": 80488,
+    "name": "The HMS Divinity",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Rifle",
+    "expansion": "PoF",
+    "description": "Legendary Rifle.",
+    "defaultIcon": "https://render.guildwars2.com/file/0E9706D871154B6D43B62CC2969C2108905B9A12/1634157.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_HMS_Divinity",
+    "pieceIds": [
+      80488
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 80488,
+        "name": "The HMS Divinity",
+        "icon": "https://render.guildwars2.com/file/0E9706D871154B6D43B62CC2969C2108905B9A12/1634157.png"
+      }
+    ]
+  },
+  {
+    "id": "the-shining-blade",
+    "gw2ItemId": 81957,
+    "name": "The Shining Blade",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Sword",
+    "expansion": "PoF",
+    "description": "Legendary Sword.",
+    "defaultIcon": "https://render.guildwars2.com/file/DB4197185C097D04569265051654AA121F459A1D/1729769.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_Shining_Blade",
+    "pieceIds": [
+      81957
+    ],
+    "maxCount": 4,
+    "pieces": [
+      {
+        "id": 81957,
+        "name": "The Shining Blade",
+        "icon": "https://render.guildwars2.com/file/DB4197185C097D04569265051654AA121F459A1D/1729769.png"
+      }
+    ]
+  },
+  {
+    "id": "verdarach",
+    "gw2ItemId": 87687,
+    "name": "Verdarach",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Warhorn",
+    "expansion": "PoF",
+    "description": "Legendary Warhorn.",
+    "defaultIcon": "https://render.guildwars2.com/file/C791E818A1AC06DB5A61E239C1DB6CDF4F7D69E6/1999146.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Verdarach",
+    "pieceIds": [
+      87687
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 87687,
+        "name": "Verdarach",
+        "icon": "https://render.guildwars2.com/file/C791E818A1AC06DB5A61E239C1DB6CDF4F7D69E6/1999146.png"
+      }
+    ]
+  },
+  {
+    "id": "xiuquatl",
+    "gw2ItemId": 88576,
+    "name": "Xiuquatl",
+    "category": "weapons",
+    "subCategory": "gen2",
+    "typeLabel": "Scepter",
+    "expansion": "PoF",
+    "description": "Legendary Scepter.",
+    "defaultIcon": "https://render.guildwars2.com/file/B51C094561D8D8DD30B8006E3DB84C149B3F1D90/2038676.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Xiuquatl",
+    "pieceIds": [
+      88576
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 88576,
+        "name": "Xiuquatl",
+        "icon": "https://render.guildwars2.com/file/B51C094561D8D8DD30B8006E3DB84C149B3F1D90/2038676.png"
+      }
+    ]
+  },
+  {
+    "id": "ancora-bellum",
+    "gw2ItemId": 106273,
+    "name": "Ancora Bellum",
+    "category": "weapons",
+    "subCategory": "underwater",
+    "typeLabel": "Spear",
+    "expansion": "VoE",
+    "description": "Legendary Spear.",
+    "defaultIcon": "https://render.guildwars2.com/file/31290C7C3C6799515EC55B143EFE292ED00B5663/3710037.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Ancora_Bellum",
+    "pieceIds": [
+      106273
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 106273,
+        "name": "Ancora Bellum",
+        "icon": "https://render.guildwars2.com/file/31290C7C3C6799515EC55B143EFE292ED00B5663/3710037.png"
+      }
+    ]
+  },
+  {
+    "id": "ancora-pax",
+    "gw2ItemId": 105653,
+    "name": "Ancora Pax",
+    "category": "weapons",
+    "subCategory": "standalone",
+    "typeLabel": "Staff",
+    "expansion": "VoE",
+    "description": "Legendary Staff.",
+    "defaultIcon": "https://render.guildwars2.com/file/062138CC40DF0A2D4195C9DAA5FDD8BF0ECC27F9/3710038.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Ancora_Pax",
+    "pieceIds": [
+      105653
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 105653,
+        "name": "Ancora Pax",
+        "icon": "https://render.guildwars2.com/file/062138CC40DF0A2D4195C9DAA5FDD8BF0ECC27F9/3710038.png"
+      }
+    ]
+  },
+  {
+    "id": "perfected-envoy-heavy-armor",
+    "gw2ItemId": 80384,
+    "name": "Perfected Envoy Heavy Armor",
+    "category": "armor",
+    "subCategory": "raid",
+    "typeLabel": "Heavy Armor (6 pieces)",
+    "expansion": "HoT",
+    "description": "Full legendary heavy armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/2695A8E44B7F07EF15A20857790EFCA91513F5F0/1634565.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Perfected_Envoy",
+    "pieceIds": [
+      80384,
+      80254,
+      80557,
+      80435,
+      80277,
+      80205
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 80384,
+        "name": "Perfected Envoy Helmet",
+        "icon": "https://render.guildwars2.com/file/2695A8E44B7F07EF15A20857790EFCA91513F5F0/1634565.png"
+      },
+      {
+        "id": 80254,
+        "name": "Perfected Envoy Breastplate",
+        "icon": "https://render.guildwars2.com/file/DACF9B1ACBE8687B6B31ABC0CF295301120D7A67/1634563.png"
+      },
+      {
+        "id": 80557,
+        "name": "Perfected Envoy Greaves",
+        "icon": "https://render.guildwars2.com/file/E895D40AE0D1A500FFFDB955C27A98FF687AA4C1/1634562.png"
+      },
+      {
+        "id": 80435,
+        "name": "Perfected Envoy Pauldrons",
+        "icon": "https://render.guildwars2.com/file/0F0F4BE73C9316BAA4956A3AA622CB0AE84D9CEA/1634567.png"
+      },
+      {
+        "id": 80277,
+        "name": "Perfected Envoy Tassets",
+        "icon": "https://render.guildwars2.com/file/EA9294557C175A43567906721E43962EC4B12D34/1634566.png"
+      },
+      {
+        "id": 80205,
+        "name": "Perfected Envoy Gauntlets",
+        "icon": "https://render.guildwars2.com/file/A5DD0D661970F02CC26D04B510C7C94259B99520/1634564.png"
+      }
+    ]
+  },
+  {
+    "id": "perfected-envoy-light-armor",
+    "gw2ItemId": 80248,
+    "name": "Perfected Envoy Light Armor",
+    "category": "armor",
+    "subCategory": "raid",
+    "typeLabel": "Light Armor (6 pieces)",
+    "expansion": "HoT",
+    "description": "Full legendary light armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/06146C9BD029041178F50B5D9ACD0A76E7051408/1634576.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Perfected_Envoy",
+    "pieceIds": [
+      80111,
+      80248,
+      80131,
+      80190,
+      80356,
+      80399
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 80111,
+        "name": "Perfected Envoy Gloves",
+        "icon": "https://render.guildwars2.com/file/9703DBC0926F6BB4072032E6B55BE593F6B750CD/1634575.png"
+      },
+      {
+        "id": 80248,
+        "name": "Perfected Envoy Cowl",
+        "icon": "https://render.guildwars2.com/file/06146C9BD029041178F50B5D9ACD0A76E7051408/1634576.png"
+      },
+      {
+        "id": 80131,
+        "name": "Perfected Envoy Mantle",
+        "icon": "https://render.guildwars2.com/file/A77403E5F0EB03E46E686B12297A04707AF50278/1634579.png"
+      },
+      {
+        "id": 80190,
+        "name": "Perfected Envoy Vestments",
+        "icon": "https://render.guildwars2.com/file/C8FB494379CC98171EFB0F13923CACFD047743B3/1634574.png"
+      },
+      {
+        "id": 80356,
+        "name": "Perfected Envoy Pants",
+        "icon": "https://render.guildwars2.com/file/65A4D3A41592D10EEABD0BC0D611F13A383B0261/1634577.png"
+      },
+      {
+        "id": 80399,
+        "name": "Perfected Envoy Shoes",
+        "icon": "https://render.guildwars2.com/file/FD60D4E3986FA46F4FEBB8131B65159195260B19/1634578.png"
+      }
+    ]
+  },
+  {
+    "id": "perfected-envoy-medium-armor",
+    "gw2ItemId": 80296,
+    "name": "Perfected Envoy Medium Armor",
+    "category": "armor",
+    "subCategory": "raid",
+    "typeLabel": "Medium Armor (6 pieces)",
+    "expansion": "HoT",
+    "description": "Full legendary medium armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/49092A1358E528DEC67EFA1C090546ED034642E2/1634588.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Perfected_Envoy",
+    "pieceIds": [
+      80252,
+      80161,
+      80281,
+      80145,
+      80296,
+      80578
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 80252,
+        "name": "Perfected Envoy Leggings",
+        "icon": "https://render.guildwars2.com/file/EBD907C061747927AE062D1B41BC13D0EAF14AD5/1634589.png"
+      },
+      {
+        "id": 80161,
+        "name": "Perfected Envoy Vambraces",
+        "icon": "https://render.guildwars2.com/file/C57E5E5FA69261A2503CBB50080A6C023A155C49/1634587.png"
+      },
+      {
+        "id": 80281,
+        "name": "Perfected Envoy Boots",
+        "icon": "https://render.guildwars2.com/file/BF4C6A48BA02BD6D6AC32F1E9C3F32A50399E336/1634590.png"
+      },
+      {
+        "id": 80145,
+        "name": "Perfected Envoy Shoulderpads",
+        "icon": "https://render.guildwars2.com/file/CF7609512FC6527D805F2B74F26AF4549FF4E808/1634591.png"
+      },
+      {
+        "id": 80296,
+        "name": "Perfected Envoy Mask",
+        "icon": "https://render.guildwars2.com/file/49092A1358E528DEC67EFA1C090546ED034642E2/1634588.png"
+      },
+      {
+        "id": 80578,
+        "name": "Perfected Envoy Jerkin",
+        "icon": "https://render.guildwars2.com/file/57360F35D1210D12010F6AE772382450A07D08F6/1634586.png"
+      }
+    ]
+  },
+  {
+    "id": "selachimorpha-heavy",
+    "gw2ItemId": 106178,
+    "name": "Selachimorpha (Heavy)",
+    "category": "armor",
+    "subCategory": "aquatic",
+    "typeLabel": "Heavy Aquatic Headgear",
+    "expansion": "JW",
+    "description": "Legendary aquatic headgear.",
+    "defaultIcon": "https://render.guildwars2.com/file/340AA29452C4AF96F8434AF323E3747AAE020B34/3710799.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Selachimorpha",
+    "pieceIds": [
+      106178
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 106178,
+        "name": "Selachimorpha",
+        "icon": "https://render.guildwars2.com/file/340AA29452C4AF96F8434AF323E3747AAE020B34/3710799.png"
+      }
+    ]
+  },
+  {
+    "id": "selachimorpha-light",
+    "gw2ItemId": 105921,
+    "name": "Selachimorpha (Light)",
+    "category": "armor",
+    "subCategory": "aquatic",
+    "typeLabel": "Light Aquatic Headgear",
+    "expansion": "JW",
+    "description": "Legendary aquatic headgear.",
+    "defaultIcon": "https://render.guildwars2.com/file/340AA29452C4AF96F8434AF323E3747AAE020B34/3710799.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Selachimorpha",
+    "pieceIds": [
+      105921
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 105921,
+        "name": "Selachimorpha",
+        "icon": "https://render.guildwars2.com/file/340AA29452C4AF96F8434AF323E3747AAE020B34/3710799.png"
+      }
+    ]
+  },
+  {
+    "id": "selachimorpha-medium",
+    "gw2ItemId": 106658,
+    "name": "Selachimorpha (Medium)",
+    "category": "armor",
+    "subCategory": "aquatic",
+    "typeLabel": "Medium Aquatic Headgear",
+    "expansion": "JW",
+    "description": "Legendary aquatic headgear.",
+    "defaultIcon": "https://render.guildwars2.com/file/340AA29452C4AF96F8434AF323E3747AAE020B34/3710799.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Selachimorpha",
+    "pieceIds": [
+      106658
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 106658,
+        "name": "Selachimorpha",
+        "icon": "https://render.guildwars2.com/file/340AA29452C4AF96F8434AF323E3747AAE020B34/3710799.png"
+      }
+    ]
+  },
+  {
+    "id": "ardent-glorious-heavy-armor",
+    "gw2ItemId": 83921,
+    "name": "Ardent Glorious Heavy Armor",
+    "category": "armor",
+    "subCategory": "pvp",
+    "typeLabel": "Heavy Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary heavy armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/35BD081715E6C4330AB8706A3C1110000A80F190/1614747.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Ardent_Glorious",
+    "pieceIds": [
+      83921,
+      83323,
+      82465,
+      83348,
+      83127,
+      84655
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 83921,
+        "name": "Ardent Glorious Plate Helm",
+        "icon": "https://render.guildwars2.com/file/35BD081715E6C4330AB8706A3C1110000A80F190/1614747.png"
+      },
+      {
+        "id": 83323,
+        "name": "Ardent Glorious Legplates",
+        "icon": "https://render.guildwars2.com/file/E81FA70225B09E9B55750EE5681BB1B17C17C72D/1614748.png"
+      },
+      {
+        "id": 82465,
+        "name": "Ardent Glorious Gauntlets",
+        "icon": "https://render.guildwars2.com/file/2E72F16CC7201A0D04B2B166C86FA8BF06262EE5/1614746.png"
+      },
+      {
+        "id": 83348,
+        "name": "Ardent Glorious Breastplate",
+        "icon": "https://render.guildwars2.com/file/E9531DD43D5AA5B15FC40C0F336357947B177B40/1614745.png"
+      },
+      {
+        "id": 83127,
+        "name": "Ardent Glorious Pauldrons",
+        "icon": "https://render.guildwars2.com/file/06EA1DCD71DD4125DAF401C36D560CABFC6950B4/1614749.png"
+      },
+      {
+        "id": 84655,
+        "name": "Ardent Glorious Wargreaves",
+        "icon": "https://render.guildwars2.com/file/B8230ABBBAB60034D7EE4C59C53944DCEB22D6AE/1614744.png"
+      }
+    ]
+  },
+  {
+    "id": "ardent-glorious-light-armor",
+    "gw2ItemId": 84633,
+    "name": "Ardent Glorious Light Armor",
+    "category": "armor",
+    "subCategory": "pvp",
+    "typeLabel": "Light Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary light armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/5BCC779A79759760D73EBFA20A56332E3D076301/1614753.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Ardent_Glorious",
+    "pieceIds": [
+      83162,
+      84546,
+      83595,
+      83113,
+      84633,
+      82519
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 83162,
+        "name": "Ardent Glorious Armguards",
+        "icon": "https://render.guildwars2.com/file/499A0D7A4158E5DB0F1D0E5811699AED01550DF0/1614752.png"
+      },
+      {
+        "id": 84546,
+        "name": "Ardent Glorious Leggings",
+        "icon": "https://render.guildwars2.com/file/3E79337DFCB1B17D9726C1550F04212070AF0A51/1614754.png"
+      },
+      {
+        "id": 83595,
+        "name": "Ardent Glorious Epaulets",
+        "icon": "https://render.guildwars2.com/file/D07026CAB304449F95B790041B530DA4BF1FA75E/1614755.png"
+      },
+      {
+        "id": 83113,
+        "name": "Ardent Glorious Raiment",
+        "icon": "https://render.guildwars2.com/file/A2F718496A092F651A3B389155247999A91D2DE5/1614751.png"
+      },
+      {
+        "id": 84633,
+        "name": "Ardent Glorious Crown",
+        "icon": "https://render.guildwars2.com/file/5BCC779A79759760D73EBFA20A56332E3D076301/1614753.png"
+      },
+      {
+        "id": 82519,
+        "name": "Ardent Glorious Footgear",
+        "icon": "https://render.guildwars2.com/file/77B399C6021A5FF0A03E3D0CCAB6C47408F90BE2/1614750.png"
+      }
+    ]
+  },
+  {
+    "id": "ardent-glorious-medium-armor",
+    "gw2ItemId": 84643,
+    "name": "Ardent Glorious Medium Armor",
+    "category": "armor",
+    "subCategory": "pvp",
+    "typeLabel": "Medium Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary medium armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/9C38D712207518FBBF12EB20C8CC5D5D92E4B2C2/1614761.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Ardent_Glorious",
+    "pieceIds": [
+      82670,
+      84643,
+      82245,
+      83929,
+      82214,
+      82512
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 82670,
+        "name": "Ardent Glorious Brigandine",
+        "icon": "https://render.guildwars2.com/file/B0906E0C2EADA0C59390115899A6979D665C64CA/1614759.png"
+      },
+      {
+        "id": 84643,
+        "name": "Ardent Glorious Cap",
+        "icon": "https://render.guildwars2.com/file/9C38D712207518FBBF12EB20C8CC5D5D92E4B2C2/1614761.png"
+      },
+      {
+        "id": 82245,
+        "name": "Ardent Glorious Wristplates",
+        "icon": "https://render.guildwars2.com/file/B7CBE0606944F6983F5A95DFAB7E53CB4245B40F/1614760.png"
+      },
+      {
+        "id": 83929,
+        "name": "Ardent Glorious Shoulderguards",
+        "icon": "https://render.guildwars2.com/file/5553497B9B78200DE192611BBD037AD96E5439EF/1614763.png"
+      },
+      {
+        "id": 82214,
+        "name": "Ardent Glorious Shinplates",
+        "icon": "https://render.guildwars2.com/file/14ED04F94CF35A1ACA51C4FAED01F7BEB209FC63/1614758.png"
+      },
+      {
+        "id": 82512,
+        "name": "Ardent Glorious Legguards",
+        "icon": "https://render.guildwars2.com/file/6BD2EEC59E31C6D605F49AF4C93F1CF46D3F2B66/1614762.png"
+      }
+    ]
+  },
+  {
+    "id": "glorious-hero-s-heavy-armor",
+    "gw2ItemId": 82698,
+    "name": "Glorious Hero's Heavy Armor",
+    "category": "armor",
+    "subCategory": "pvp",
+    "typeLabel": "Heavy Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary heavy armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/76D5CDC8D84A0218BD069DEDC25E1A5EB2601600/867458.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Glorious_Hero%27s",
+    "pieceIds": [
+      84748,
+      82410,
+      84561,
+      83957,
+      82334,
+      82698
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 84748,
+        "name": "Glorious Hero's Legplates",
+        "icon": "https://render.guildwars2.com/file/25AB18FD689CF29E2921AF3CEFC853D81C6777B1/867459.png"
+      },
+      {
+        "id": 82410,
+        "name": "Glorious Hero's Gauntlets",
+        "icon": "https://render.guildwars2.com/file/410C3633712F6706EF62772717B639A7A7B27A0A/867456.png"
+      },
+      {
+        "id": 84561,
+        "name": "Glorious Hero's Pauldrons",
+        "icon": "https://render.guildwars2.com/file/160D9DD3F4B8020A1F035EA7A4200BFBD3C2CED8/867460.png"
+      },
+      {
+        "id": 83957,
+        "name": "Glorious Hero's Wargreaves",
+        "icon": "https://render.guildwars2.com/file/462598914D3B2E51611DEE9D5AA3796C106E4608/867457.png"
+      },
+      {
+        "id": 82334,
+        "name": "Glorious Hero's Breastplate",
+        "icon": "https://render.guildwars2.com/file/93F94B9B505AA7FD2216387E4D2734F20A50380F/867455.png"
+      },
+      {
+        "id": 82698,
+        "name": "Glorious Hero's Plate Helm",
+        "icon": "https://render.guildwars2.com/file/76D5CDC8D84A0218BD069DEDC25E1A5EB2601600/867458.png"
+      }
+    ]
+  },
+  {
+    "id": "glorious-hero-s-light-armor",
+    "gw2ItemId": 82423,
+    "name": "Glorious Hero's Light Armor",
+    "category": "armor",
+    "subCategory": "pvp",
+    "typeLabel": "Light Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary light armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/F2521B01F9D7730A5FCD07959D2800F7B063B2AE/867464.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Glorious_Hero%27s",
+    "pieceIds": [
+      83729,
+      84341,
+      84427,
+      84461,
+      82423,
+      84723
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 83729,
+        "name": "Glorious Hero's Raiment",
+        "icon": "https://render.guildwars2.com/file/2E5F1407AC03E3C7049364EF90A26E7F666442E9/867462.png"
+      },
+      {
+        "id": 84341,
+        "name": "Glorious Hero's Leggings",
+        "icon": "https://render.guildwars2.com/file/9F21024AEDE845F0B4D907CA27946907EACB912E/867465.png"
+      },
+      {
+        "id": 84427,
+        "name": "Glorious Hero's Footgear",
+        "icon": "https://render.guildwars2.com/file/424016C1C923B5EC0CA44BECEECE910B6CBE11CB/867461.png"
+      },
+      {
+        "id": 84461,
+        "name": "Glorious Hero's Armguards",
+        "icon": "https://render.guildwars2.com/file/259878409911636CDA0A80BB6B6EE623D304DECF/867463.png"
+      },
+      {
+        "id": 82423,
+        "name": "Glorious Hero's Crown",
+        "icon": "https://render.guildwars2.com/file/F2521B01F9D7730A5FCD07959D2800F7B063B2AE/867464.png"
+      },
+      {
+        "id": 84723,
+        "name": "Glorious Hero's Epaulets",
+        "icon": "https://render.guildwars2.com/file/80CEAB015B31400F0995FFBA3634D6F923ED5701/867466.png"
+      }
+    ]
+  },
+  {
+    "id": "glorious-hero-s-medium-armor",
+    "gw2ItemId": 82401,
+    "name": "Glorious Hero's Medium Armor",
+    "category": "armor",
+    "subCategory": "pvp",
+    "typeLabel": "Medium Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary medium armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/0A2C2D21C2143B7A5E4DC440449DEC004A3839D4/867470.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Glorious_Hero%27s",
+    "pieceIds": [
+      82268,
+      82401,
+      83676,
+      82272,
+      83240,
+      82098
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 82268,
+        "name": "Glorious Hero's Shoulderguards",
+        "icon": "https://render.guildwars2.com/file/574904ECF7C01064A4E5396D4F6180B8BACF42EC/867472.png"
+      },
+      {
+        "id": 82401,
+        "name": "Glorious Hero's Cap",
+        "icon": "https://render.guildwars2.com/file/0A2C2D21C2143B7A5E4DC440449DEC004A3839D4/867470.png"
+      },
+      {
+        "id": 83676,
+        "name": "Glorious Hero's Wristplates",
+        "icon": "https://render.guildwars2.com/file/5E7DA46771BEC86A9BC4B509DD4740E7061C92A0/867469.png"
+      },
+      {
+        "id": 82272,
+        "name": "Glorious Hero's Shinplates",
+        "icon": "https://render.guildwars2.com/file/6A2D2490AA58EC1C3B2FDCE4310C903866662E56/867467.png"
+      },
+      {
+        "id": 83240,
+        "name": "Glorious Hero's Legguards",
+        "icon": "https://render.guildwars2.com/file/332262EC51D5C97678FE7399E2BAB8B1A3060137/867471.png"
+      },
+      {
+        "id": 82098,
+        "name": "Glorious Hero's Brigandine",
+        "icon": "https://render.guildwars2.com/file/93B86EC1355512F733F67E66C3B9084E0B78AF0F/867468.png"
+      }
+    ]
+  },
+  {
+    "id": "mistforged-glorious-hero-s-heavy-armor",
+    "gw2ItemId": 89117,
+    "name": "Mistforged Glorious Hero's Heavy Armor",
+    "category": "armor",
+    "subCategory": "pvp",
+    "typeLabel": "Heavy Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary heavy armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/A62FA5F4E525921C390F3C2D016C25FE0177B50A/2063510.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Mistforged_Glorious_Hero%27s",
+    "pieceIds": [
+      89266,
+      89209,
+      89093,
+      89252,
+      89117,
+      89152
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 89266,
+        "name": "Mistforged Glorious Hero's Legplates",
+        "icon": "https://render.guildwars2.com/file/5ED5A6EB26540D3F933C9D2C4004C969FBB7AAB4/2063511.png"
+      },
+      {
+        "id": 89209,
+        "name": "Mistforged Glorious Hero's Pauldrons",
+        "icon": "https://render.guildwars2.com/file/36E874CF6330D4E4DC9FD7E3A400A4369096EFD4/2063512.png"
+      },
+      {
+        "id": 89093,
+        "name": "Mistforged Glorious Hero's Gauntlets",
+        "icon": "https://render.guildwars2.com/file/1BD17278253564D00DBC2AD8066D399DCD17CB00/2063509.png"
+      },
+      {
+        "id": 89252,
+        "name": "Mistforged Glorious Hero's Wargreaves",
+        "icon": "https://render.guildwars2.com/file/FAB26D72EA23FCDD0BEB69506B5D4B02D53F0C9B/2063507.png"
+      },
+      {
+        "id": 89117,
+        "name": "Mistforged Glorious Hero's Plate Helm",
+        "icon": "https://render.guildwars2.com/file/A62FA5F4E525921C390F3C2D016C25FE0177B50A/2063510.png"
+      },
+      {
+        "id": 89152,
+        "name": "Mistforged Glorious Hero's Breastplate",
+        "icon": "https://render.guildwars2.com/file/5799E5D9CB303C1E97032C2356BE786F0EF00B22/2063508.png"
+      }
+    ]
+  },
+  {
+    "id": "mistforged-glorious-hero-s-light-armor",
+    "gw2ItemId": 89260,
+    "name": "Mistforged Glorious Hero's Light Armor",
+    "category": "armor",
+    "subCategory": "pvp",
+    "typeLabel": "Light Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary light armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/51163A53D41CBC1C665E08547E36E7E8CC10150B/2063522.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Mistforged_Glorious_Hero%27s",
+    "pieceIds": [
+      89101,
+      89158,
+      89245,
+      89167,
+      89260,
+      89174
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 89101,
+        "name": "Mistforged Glorious Hero's Leggings",
+        "icon": "https://render.guildwars2.com/file/4B14C193DF3700AF914B404892EFB5A674F12B25/2063523.png"
+      },
+      {
+        "id": 89158,
+        "name": "Mistforged Glorious Hero's Epaulets",
+        "icon": "https://render.guildwars2.com/file/00683F3E025C3E24BC9FD207E254E3DB2941EC25/2063524.png"
+      },
+      {
+        "id": 89245,
+        "name": "Mistforged Glorious Hero's Footgear",
+        "icon": "https://render.guildwars2.com/file/D598700309A1D7236DE1F90158904B4A24E6EA0F/2063519.png"
+      },
+      {
+        "id": 89167,
+        "name": "Mistforged Glorious Hero's Armguards",
+        "icon": "https://render.guildwars2.com/file/92654509673FF39EFDDE0A14D13893025D0DC0EC/2063521.png"
+      },
+      {
+        "id": 89260,
+        "name": "Mistforged Glorious Hero's Crown",
+        "icon": "https://render.guildwars2.com/file/51163A53D41CBC1C665E08547E36E7E8CC10150B/2063522.png"
+      },
+      {
+        "id": 89174,
+        "name": "Mistforged Glorious Hero's Raiment",
+        "icon": "https://render.guildwars2.com/file/2306F165D380319A6921670D96559EE50DF05963/2063520.png"
+      }
+    ]
+  },
+  {
+    "id": "mistforged-glorious-hero-s-medium-armor",
+    "gw2ItemId": 89126,
+    "name": "Mistforged Glorious Hero's Medium Armor",
+    "category": "armor",
+    "subCategory": "pvp",
+    "typeLabel": "Medium Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary medium armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/4F4C07660377CF2C4F363DA3FE1A652E245FE0D2/2063534.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Mistforged_Glorious_Hero%27s",
+    "pieceIds": [
+      89094,
+      89134,
+      89234,
+      89126,
+      89235,
+      89183
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 89094,
+        "name": "Mistforged Glorious Hero's Legguards",
+        "icon": "https://render.guildwars2.com/file/DCDA3ADAF8A3C86AED32D03A17EDC8D6B0110C5A/2063535.png"
+      },
+      {
+        "id": 89134,
+        "name": "Mistforged Glorious Hero's Wristplates",
+        "icon": "https://render.guildwars2.com/file/522AD73905F11B3573A466D10EBE0BDF1632422B/2063533.png"
+      },
+      {
+        "id": 89234,
+        "name": "Mistforged Glorious Hero's Shoulderguards",
+        "icon": "https://render.guildwars2.com/file/490D7E611A0401A1CEB2CBB1D72AE3A34F27140E/2063536.png"
+      },
+      {
+        "id": 89126,
+        "name": "Mistforged Glorious Hero's Cap",
+        "icon": "https://render.guildwars2.com/file/4F4C07660377CF2C4F363DA3FE1A652E245FE0D2/2063534.png"
+      },
+      {
+        "id": 89235,
+        "name": "Mistforged Glorious Hero's Shinplates",
+        "icon": "https://render.guildwars2.com/file/640277D15B9425D604EFDEFD183E159926BE7A9B/2063531.png"
+      },
+      {
+        "id": 89183,
+        "name": "Mistforged Glorious Hero's Brigandine",
+        "icon": "https://render.guildwars2.com/file/AC000A5328F5A2D5C824DEFCE4FA07C501E2A64B/2063532.png"
+      }
+    ]
+  },
+  {
+    "id": "mistforged-triumphant-hero-s-heavy-armor",
+    "gw2ItemId": 84301,
+    "name": "Mistforged Triumphant Hero's Heavy Armor",
+    "category": "armor",
+    "subCategory": "wvw",
+    "typeLabel": "Heavy Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary heavy armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/FAE5DC7E0F07BC030716C1F4EAF6CDC8664F07B7/1701172.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Mistforged_Triumphant_Hero%27s",
+    "pieceIds": [
+      84181,
+      83094,
+      83702,
+      82348,
+      84301,
+      84481
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 84181,
+        "name": "Mistforged Triumphant Hero's Pauldrons",
+        "icon": "https://render.guildwars2.com/file/3D1B61F6A52E073604A5C3909439B05A5CEA4F71/1701174.png"
+      },
+      {
+        "id": 83094,
+        "name": "Mistforged Triumphant Hero's Wargreaves",
+        "icon": "https://render.guildwars2.com/file/9BBD33006EA66EBF11000277D526433929FB33E2/1701168.png"
+      },
+      {
+        "id": 83702,
+        "name": "Mistforged Triumphant Hero's Legplates",
+        "icon": "https://render.guildwars2.com/file/97D26D98D3249A36F2EADECA9858F9DFBE1E2DC8/1701173.png"
+      },
+      {
+        "id": 82348,
+        "name": "Mistforged Triumphant Hero's Gauntlets",
+        "icon": "https://render.guildwars2.com/file/4D2A4C28F657368066E747BF66923376D3456FBA/1701171.png"
+      },
+      {
+        "id": 84301,
+        "name": "Mistforged Triumphant Hero's Warhelm",
+        "icon": "https://render.guildwars2.com/file/FAE5DC7E0F07BC030716C1F4EAF6CDC8664F07B7/1701172.png"
+      },
+      {
+        "id": 84481,
+        "name": "Sublime Mistforged Triumphant Hero's Breastplate",
+        "icon": "https://render.guildwars2.com/file/BE5BD50D0DDD3A0261D5155EDEE591317E4101B6/1701170.png"
+      }
+    ]
+  },
+  {
+    "id": "mistforged-triumphant-hero-s-light-armor",
+    "gw2ItemId": 82925,
+    "name": "Mistforged Triumphant Hero's Light Armor",
+    "category": "armor",
+    "subCategory": "wvw",
+    "typeLabel": "Light Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary light armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/A86FC7A04C2CCE9A024C2B7C6A41E04C78926304/1701179.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Mistforged_Triumphant_Hero%27s",
+    "pieceIds": [
+      83482,
+      83308,
+      84508,
+      82925,
+      82109,
+      82502
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 83482,
+        "name": "Mistforged Triumphant Hero's Footgear",
+        "icon": "https://render.guildwars2.com/file/CEB5ADB9A322AF16042849484E7A5A537E4C5703/1701175.png"
+      },
+      {
+        "id": 83308,
+        "name": "Mistforged Triumphant Hero's Epaulets",
+        "icon": "https://render.guildwars2.com/file/6B4CB909DB3306BDF3E7DB4BDB94EAE7491C1AB1/1701181.png"
+      },
+      {
+        "id": 84508,
+        "name": "Sublime Mistforged Triumphant Hero's Raiment",
+        "icon": "https://render.guildwars2.com/file/28CD680D1095B053CFDDC06A382551FFA9E4095D/1701177.png"
+      },
+      {
+        "id": 82925,
+        "name": "Mistforged Triumphant Hero's Masque",
+        "icon": "https://render.guildwars2.com/file/A86FC7A04C2CCE9A024C2B7C6A41E04C78926304/1701179.png"
+      },
+      {
+        "id": 82109,
+        "name": "Mistforged Triumphant Hero's Armguards",
+        "icon": "https://render.guildwars2.com/file/6F1ECE71967A6214E702CB1D7F40E1DCD7A5AE12/1701178.png"
+      },
+      {
+        "id": 82502,
+        "name": "Mistforged Triumphant Hero's Leggings",
+        "icon": "https://render.guildwars2.com/file/042F109538659229627BD244BC290FADC00E0619/1701180.png"
+      }
+    ]
+  },
+  {
+    "id": "mistforged-triumphant-hero-s-medium-armor",
+    "gw2ItemId": 82180,
+    "name": "Mistforged Triumphant Hero's Medium Armor",
+    "category": "armor",
+    "subCategory": "wvw",
+    "typeLabel": "Medium Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary medium armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/09F65E3C6B50ADD77F4AE16213F7F7C19C664077/1701186.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Mistforged_Triumphant_Hero%27s",
+    "pieceIds": [
+      82180,
+      83087,
+      83862,
+      82552,
+      82102,
+      83699
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 82180,
+        "name": "Mistforged Triumphant Hero's Faceguard",
+        "icon": "https://render.guildwars2.com/file/09F65E3C6B50ADD77F4AE16213F7F7C19C664077/1701186.png"
+      },
+      {
+        "id": 83087,
+        "name": "Mistforged Triumphant Hero's Shoulderguards",
+        "icon": "https://render.guildwars2.com/file/5357BBDD08A466C365BE7A6BA4AD0D280FFB0A75/1701188.png"
+      },
+      {
+        "id": 83862,
+        "name": "Mistforged Triumphant Hero's Legguards",
+        "icon": "https://render.guildwars2.com/file/15200C952605EFF79E51E92EA26AC7E8922A3599/1701187.png"
+      },
+      {
+        "id": 82552,
+        "name": "Mistforged Triumphant Hero's Wristplates",
+        "icon": "https://render.guildwars2.com/file/196EAE32B127E266DA6C0A1A0DE47C3335A91E41/1701185.png"
+      },
+      {
+        "id": 82102,
+        "name": "Sublime Mistforged Triumphant Hero's Brigandine",
+        "icon": "https://render.guildwars2.com/file/19AA55591F1D989CF93906429DCBD71477420EAC/1701184.png"
+      },
+      {
+        "id": 83699,
+        "name": "Mistforged Triumphant Hero's Shinplates",
+        "icon": "https://render.guildwars2.com/file/5814F309A80957720C94711EAD1E9302A8410E3B/1701182.png"
+      }
+    ]
+  },
+  {
+    "id": "triumphant-hero-s-heavy-armor",
+    "gw2ItemId": 84176,
+    "name": "Triumphant Hero's Heavy Armor",
+    "category": "armor",
+    "subCategory": "wvw",
+    "typeLabel": "Heavy Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary heavy armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/BCFC78934BCEDC9E92F54160E24FAB78F978664C/1424087.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Triumphant_Hero%27s",
+    "pieceIds": [
+      83394,
+      84176,
+      82456,
+      82963,
+      82801,
+      82196
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 83394,
+        "name": "Triumphant Hero's Breastplate",
+        "icon": "https://render.guildwars2.com/file/694939A86C196A93D84D1602650B7849EF704C64/1424085.png"
+      },
+      {
+        "id": 84176,
+        "name": "Triumphant Hero's Warhelm",
+        "icon": "https://render.guildwars2.com/file/BCFC78934BCEDC9E92F54160E24FAB78F978664C/1424087.png"
+      },
+      {
+        "id": 82456,
+        "name": "Triumphant Hero's Gauntlets",
+        "icon": "https://render.guildwars2.com/file/9D07B60141520863CE60D2391CFAA09DB9B8A0E1/1424086.png"
+      },
+      {
+        "id": 82963,
+        "name": "Triumphant Hero's Pauldrons",
+        "icon": "https://render.guildwars2.com/file/BD48962D7D3475E359DD9B34A5EF5B2F9204009E/1424089.png"
+      },
+      {
+        "id": 82801,
+        "name": "Triumphant Hero's Wargreaves",
+        "icon": "https://render.guildwars2.com/file/9DF8D839C6DABFBC783CA1DFBEFE1DA957581F47/1424084.png"
+      },
+      {
+        "id": 82196,
+        "name": "Triumphant Hero's Legplates",
+        "icon": "https://render.guildwars2.com/file/6C9F11AC46DDD4755ED3ADEA07A90F2A05951B94/1424088.png"
+      }
+    ]
+  },
+  {
+    "id": "triumphant-hero-s-light-armor",
+    "gw2ItemId": 82902,
+    "name": "Triumphant Hero's Light Armor",
+    "category": "armor",
+    "subCategory": "wvw",
+    "typeLabel": "Light Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary light armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/0EDAC40348BC373C68FB73AD4CA7B0A91A5F0DED/1424099.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Triumphant_Hero%27s",
+    "pieceIds": [
+      83036,
+      83497,
+      82902,
+      84629,
+      83289,
+      82173
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 83036,
+        "name": "Triumphant Hero's Raiment",
+        "icon": "https://render.guildwars2.com/file/BC1A902C632DEFD0AC26F998039BAD3C7B0F69CC/1424097.png"
+      },
+      {
+        "id": 83497,
+        "name": "Triumphant Hero's Leggings",
+        "icon": "https://render.guildwars2.com/file/B2A2AD0A47EF806A4673925F05F5BE9BEFADBE78/1424100.png"
+      },
+      {
+        "id": 82902,
+        "name": "Triumphant Hero's Masque",
+        "icon": "https://render.guildwars2.com/file/0EDAC40348BC373C68FB73AD4CA7B0A91A5F0DED/1424099.png"
+      },
+      {
+        "id": 84629,
+        "name": "Triumphant Hero's Armguards",
+        "icon": "https://render.guildwars2.com/file/0EE3370461A7AEE1C7530A745E747E9D0E68E034/1424098.png"
+      },
+      {
+        "id": 83289,
+        "name": "Triumphant Hero's Footgear",
+        "icon": "https://render.guildwars2.com/file/309FA30E0915FA590A01DAA42370800AEE7D0506/1424096.png"
+      },
+      {
+        "id": 82173,
+        "name": "Triumphant Hero's Epaulets",
+        "icon": "https://render.guildwars2.com/file/6D1E1A9C49365C704BB7167BF5980EC5F695A706/1424101.png"
+      }
+    ]
+  },
+  {
+    "id": "triumphant-hero-s-medium-armor",
+    "gw2ItemId": 82437,
+    "name": "Triumphant Hero's Medium Armor",
+    "category": "armor",
+    "subCategory": "wvw",
+    "typeLabel": "Medium Armor (6 pieces)",
+    "expansion": "PoF",
+    "description": "Full legendary medium armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/9AD2650E077C9258BEF3339760A72E29E531E922/1424111.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Triumphant_Hero%27s",
+    "pieceIds": [
+      82994,
+      82903,
+      82437,
+      84110,
+      84578,
+      82093
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 82994,
+        "name": "Triumphant Hero's Shoulderguards",
+        "icon": "https://render.guildwars2.com/file/C3F6C09509D643B6B6B1D3BD9BC6B3FE7A2ED042/1424113.png"
+      },
+      {
+        "id": 82903,
+        "name": "Triumphant Hero's Legguards",
+        "icon": "https://render.guildwars2.com/file/7DDC027AA30993F8005F1A263A926C193143E7B5/1424112.png"
+      },
+      {
+        "id": 82437,
+        "name": "Triumphant Hero's Faceguard",
+        "icon": "https://render.guildwars2.com/file/9AD2650E077C9258BEF3339760A72E29E531E922/1424111.png"
+      },
+      {
+        "id": 84110,
+        "name": "Triumphant Hero's Wristplates",
+        "icon": "https://render.guildwars2.com/file/5BC934F44CD90A4EADCD085EC1375F77B117A978/1424110.png"
+      },
+      {
+        "id": 84578,
+        "name": "Triumphant Hero's Brigandine",
+        "icon": "https://render.guildwars2.com/file/2F7CF5F3B3A06CD14565C132EE2C439E4B1027D5/1424109.png"
+      },
+      {
+        "id": 82093,
+        "name": "Triumphant Hero's Shinplates",
+        "icon": "https://render.guildwars2.com/file/0642ACDC7CDF58CF1D384A23E1B3B3E0590115C5/1424108.png"
+      }
+    ]
+  },
+  {
+    "id": "eikasia-mists-grasper-heavy",
+    "gw2ItemId": 105171,
+    "name": "Eikasia, Mists-Grasper (Heavy)",
+    "category": "armor",
+    "subCategory": "aquatic",
+    "typeLabel": "Heavy Aquatic Headgear",
+    "expansion": "SOTO",
+    "description": "Cleave your foes with the remnants of worlds that could not become real.",
+    "defaultIcon": "https://render.guildwars2.com/file/809ECF06F7FEE271DF0E064FB46070293236F508/3691044.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Eikasia,_Mists-Grasper",
+    "pieceIds": [
+      105171
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 105171,
+        "name": "Eikasia, Mists-Grasper",
+        "icon": "https://render.guildwars2.com/file/809ECF06F7FEE271DF0E064FB46070293236F508/3691044.png"
+      }
+    ]
+  },
+  {
+    "id": "eikasia-mists-grasper-light",
+    "gw2ItemId": 105317,
+    "name": "Eikasia, Mists-Grasper (Light)",
+    "category": "armor",
+    "subCategory": "aquatic",
+    "typeLabel": "Light Aquatic Headgear",
+    "expansion": "SOTO",
+    "description": "Cleave your foes with the remnants of worlds that could not become real.",
+    "defaultIcon": "https://render.guildwars2.com/file/809ECF06F7FEE271DF0E064FB46070293236F508/3691044.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Eikasia,_Mists-Grasper",
+    "pieceIds": [
+      105317
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 105317,
+        "name": "Eikasia, Mists-Grasper",
+        "icon": "https://render.guildwars2.com/file/809ECF06F7FEE271DF0E064FB46070293236F508/3691044.png"
+      }
+    ]
+  },
+  {
+    "id": "eikasia-mists-grasper-medium",
+    "gw2ItemId": 105293,
+    "name": "Eikasia, Mists-Grasper (Medium)",
+    "category": "armor",
+    "subCategory": "aquatic",
+    "typeLabel": "Medium Aquatic Headgear",
+    "expansion": "SOTO",
+    "description": "Cleave your foes with the remnants of worlds that could not become real.",
+    "defaultIcon": "https://render.guildwars2.com/file/809ECF06F7FEE271DF0E064FB46070293236F508/3691044.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Eikasia,_Mists-Grasper",
+    "pieceIds": [
+      105293
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 105293,
+        "name": "Eikasia, Mists-Grasper",
+        "icon": "https://render.guildwars2.com/file/809ECF06F7FEE271DF0E064FB46070293236F508/3691044.png"
+      }
+    ]
+  },
+  {
+    "id": "obsidian-heavy-armor",
+    "gw2ItemId": 101544,
+    "name": "Obsidian Heavy Armor",
+    "category": "armor",
+    "subCategory": "obsidian",
+    "typeLabel": "Heavy Armor (6 pieces)",
+    "expansion": "SOTO",
+    "description": "Full legendary heavy armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/C905E4515CFB4AA52C7C57DF2F98D4DB0D04055D/3256184.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Obsidian",
+    "pieceIds": [
+      101609,
+      101568,
+      101544,
+      101521,
+      101551,
+      101460
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 101609,
+        "name": "Obsidian Heavy Gauntlets",
+        "icon": "https://render.guildwars2.com/file/78A5446DC86D5FDE540B45102F973D94A2EDC3C0/3256183.png"
+      },
+      {
+        "id": 101568,
+        "name": "Obsidian Heavy Cuisses",
+        "icon": "https://render.guildwars2.com/file/22BED3680AC1A1AB6B3ED4F8922891077DADF361/3256185.png"
+      },
+      {
+        "id": 101544,
+        "name": "Obsidian Heavy Helmet",
+        "icon": "https://render.guildwars2.com/file/C905E4515CFB4AA52C7C57DF2F98D4DB0D04055D/3256184.png"
+      },
+      {
+        "id": 101521,
+        "name": "Obsidian Heavy Breastplate",
+        "icon": "https://render.guildwars2.com/file/0E039364A11D5B9A0F40ADB9D0A7FD6FEDB64DB0/3256182.png"
+      },
+      {
+        "id": 101551,
+        "name": "Obsidian Heavy Pauldrons",
+        "icon": "https://render.guildwars2.com/file/BAC307B13FD2A4A803CA5CED056916D7B34DDFF8/3256186.png"
+      },
+      {
+        "id": 101460,
+        "name": "Obsidian Heavy Greaves",
+        "icon": "https://render.guildwars2.com/file/0EB6787B05B90E21D7982A3B2E75460166C6520D/3256181.png"
+      }
+    ]
+  },
+  {
+    "id": "obsidian-light-armor",
+    "gw2ItemId": 101516,
+    "name": "Obsidian Light Armor",
+    "category": "armor",
+    "subCategory": "obsidian",
+    "typeLabel": "Light Armor (6 pieces)",
+    "expansion": "SOTO",
+    "description": "Full legendary light armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/1CC5E39F6362AD5B25081C090CBCB4F12512EB22/3256197.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Obsidian",
+    "pieceIds": [
+      101536,
+      101535,
+      101516,
+      101462,
+      101501,
+      101499
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 101536,
+        "name": "Obsidian Light Gloves",
+        "icon": "https://render.guildwars2.com/file/C2EAC99A1F38707E4533C86F1AC45F6802D4F2AC/3256196.png"
+      },
+      {
+        "id": 101535,
+        "name": "Obsidian Light Shoes",
+        "icon": "https://render.guildwars2.com/file/4D52B43E294580DD05592E1402F75D5F07CD7DE9/3256194.png"
+      },
+      {
+        "id": 101516,
+        "name": "Obsidian Light Crown",
+        "icon": "https://render.guildwars2.com/file/1CC5E39F6362AD5B25081C090CBCB4F12512EB22/3256197.png"
+      },
+      {
+        "id": 101462,
+        "name": "Obsidian Light Mantle",
+        "icon": "https://render.guildwars2.com/file/0CAFA9029802161CF256331DC94480C76F413B5A/3256199.png"
+      },
+      {
+        "id": 101501,
+        "name": "Obsidian Light Pants",
+        "icon": "https://render.guildwars2.com/file/CE032615F504521DC30C6F780C09FBF137A5FA7A/3256198.png"
+      },
+      {
+        "id": 101499,
+        "name": "Obsidian Light Regalia",
+        "icon": "https://render.guildwars2.com/file/46F1D0D780A0930E936B48B9B9BF720A7B239339/3256195.png"
+      }
+    ]
+  },
+  {
+    "id": "obsidian-medium-armor",
+    "gw2ItemId": 101614,
+    "name": "Obsidian Medium Armor",
+    "category": "armor",
+    "subCategory": "obsidian",
+    "typeLabel": "Medium Armor (6 pieces)",
+    "expansion": "SOTO",
+    "description": "Full legendary medium armor set \u2014 6 pieces in the Legendary Armory.",
+    "defaultIcon": "https://render.guildwars2.com/file/297112AF99D72E081010FE01DFD0EF4649192654/3256203.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Obsidian",
+    "pieceIds": [
+      101570,
+      101602,
+      101556,
+      101579,
+      101645,
+      101614
+    ],
+    "maxCount": 6,
+    "pieces": [
+      {
+        "id": 101570,
+        "name": "Obsidian Medium Gloves",
+        "icon": "https://render.guildwars2.com/file/743805FF0EE34E1DA26EE45E0B075A6A3D47723F/3256202.png"
+      },
+      {
+        "id": 101602,
+        "name": "Obsidian Medium Boots",
+        "icon": "https://render.guildwars2.com/file/DBDB22ABE39D5BAA76C2F4FC9B294B7AF9FFF81B/3256200.png"
+      },
+      {
+        "id": 101556,
+        "name": "Obsidian Medium Jacket",
+        "icon": "https://render.guildwars2.com/file/A7DB4B5B5244D8B9D6CC6F5ED9303CE63BE06BF2/3256201.png"
+      },
+      {
+        "id": 101579,
+        "name": "Obsidian Medium Leggings",
+        "icon": "https://render.guildwars2.com/file/A021E1194C612DC313D62F73EA5799ED021C3D4F/3256204.png"
+      },
+      {
+        "id": 101645,
+        "name": "Obsidian Medium Shoulders",
+        "icon": "https://render.guildwars2.com/file/B2EE31E7095A7028CABB9462EA27433CDB340C48/3256205.png"
+      },
+      {
+        "id": 101614,
+        "name": "Obsidian Medium Mask",
+        "icon": "https://render.guildwars2.com/file/297112AF99D72E081010FE01DFD0EF4649192654/3256203.png"
+      }
+    ]
+  },
+  {
+    "id": "ad-infinitum",
+    "gw2ItemId": 74155,
+    "name": "Ad Infinitum",
+    "category": "back",
+    "subCategory": "backpack",
+    "typeLabel": "Fractals",
+    "expansion": "HoT",
+    "description": "Legendary back item.",
+    "defaultIcon": "https://render.guildwars2.com/file/562A009CE8D66B63B975251BC97041BFBE0E07E1/1202351.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Ad_Infinitum",
+    "pieceIds": [
+      74155
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 74155,
+        "name": "Ad Infinitum",
+        "icon": "https://render.guildwars2.com/file/562A009CE8D66B63B975251BC97041BFBE0E07E1/1202351.png"
+      }
+    ]
+  },
+  {
+    "id": "orrax-manifested",
+    "gw2ItemId": 104857,
+    "name": "Orrax Manifested",
+    "category": "back",
+    "subCategory": "backpack",
+    "typeLabel": "Janthir",
+    "expansion": "JW",
+    "description": "Legendary back item.",
+    "defaultIcon": "https://render.guildwars2.com/file/9C5948587832ACA31FD01298DE081BDE626CC607/3629149.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Orrax_Manifested",
+    "pieceIds": [
+      104857
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 104857,
+        "name": "Orrax Manifested",
+        "icon": "https://render.guildwars2.com/file/9C5948587832ACA31FD01298DE081BDE626CC607/3629149.png"
+      }
+    ]
+  },
+  {
+    "id": "the-ascension",
+    "gw2ItemId": 77474,
+    "name": "The Ascension",
+    "category": "back",
+    "subCategory": "backpack",
+    "typeLabel": "PvP",
+    "expansion": "PoF",
+    "description": "Legendary back item.",
+    "defaultIcon": "https://render.guildwars2.com/file/C72336A9140CC9F2B34CCFCDCE2B217B380A1ADC/1313065.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/The_Ascension",
+    "pieceIds": [
+      77474
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 77474,
+        "name": "The Ascension",
+        "icon": "https://render.guildwars2.com/file/C72336A9140CC9F2B34CCFCDCE2B217B380A1ADC/1313065.png"
+      }
+    ]
+  },
+  {
+    "id": "warbringer",
+    "gw2ItemId": 81462,
+    "name": "Warbringer",
+    "category": "back",
+    "subCategory": "backpack",
+    "typeLabel": "WvW",
+    "expansion": "PoF",
+    "description": "Legendary back item.",
+    "defaultIcon": "https://render.guildwars2.com/file/5EBEA1A467236237FCBACDC09969647956C4A371/1701118.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Warbringer",
+    "pieceIds": [
+      81462
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 81462,
+        "name": "Warbringer",
+        "icon": "https://render.guildwars2.com/file/5EBEA1A467236237FCBACDC09969647956C4A371/1701118.png"
+      }
+    ]
+  },
+  {
+    "id": "conflux",
+    "gw2ItemId": 93105,
+    "name": "Conflux",
+    "category": "trinkets",
+    "subCategory": "ring",
+    "typeLabel": "Ring",
+    "expansion": "EoD",
+    "description": "Combine your strength and vanquish your foes.",
+    "defaultIcon": "https://render.guildwars2.com/file/170765A1B5C5A90C430BD04479DABC10B1AF7E01/2270744.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Conflux",
+    "pieceIds": [
+      93105
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 93105,
+        "name": "Conflux",
+        "icon": "https://render.guildwars2.com/file/170765A1B5C5A90C430BD04479DABC10B1AF7E01/2270744.png"
+      }
+    ]
+  },
+  {
+    "id": "prismatic-champion-s-regalia",
+    "gw2ItemId": 95380,
+    "name": "Prismatic Champion's Regalia",
+    "category": "trinkets",
+    "subCategory": "amulet",
+    "typeLabel": "Amulet",
+    "expansion": "EoD",
+    "description": "The fulfillment of a legacy spanning thousands of years flies alongside you.",
+    "defaultIcon": "https://render.guildwars2.com/file/046C2DACF8C064D23BD8374C7895DA2F13AD146F/2449345.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Prismatic_Champion%27s_Regalia",
+    "pieceIds": [
+      95380
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 95380,
+        "name": "Prismatic Champion's Regalia",
+        "icon": "https://render.guildwars2.com/file/046C2DACF8C064D23BD8374C7895DA2F13AD146F/2449345.png"
+      }
+    ]
+  },
+  {
+    "id": "transcendence",
+    "gw2ItemId": 92991,
+    "name": "Transcendence",
+    "category": "trinkets",
+    "subCategory": "amulet",
+    "typeLabel": "Amulet",
+    "expansion": "EoD",
+    "description": "Rise above it all.",
+    "defaultIcon": "https://render.guildwars2.com/file/0C0D5BBDDD412439FE5F620253EFADAEF6CB760E/2270218.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Transcendence",
+    "pieceIds": [
+      92991
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 92991,
+        "name": "Transcendence",
+        "icon": "https://render.guildwars2.com/file/0C0D5BBDDD412439FE5F620253EFADAEF6CB760E/2270218.png"
+      }
+    ]
+  },
+  {
+    "id": "vision",
+    "gw2ItemId": 91048,
+    "name": "Vision",
+    "category": "trinkets",
+    "subCategory": "accessory",
+    "typeLabel": "Accessory",
+    "expansion": "EoD",
+    "description": "Legendary Accessory.",
+    "defaultIcon": "https://render.guildwars2.com/file/A5587E6C220ECF0601523947DE33A0B34048800D/2149863.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Vision",
+    "pieceIds": [
+      91048
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 91048,
+        "name": "Vision",
+        "icon": "https://render.guildwars2.com/file/A5587E6C220ECF0601523947DE33A0B34048800D/2149863.png"
+      }
+    ]
+  },
+  {
+    "id": "endless-summer",
+    "gw2ItemId": 107022,
+    "name": "Endless Summer",
+    "category": "trinkets",
+    "subCategory": "ring",
+    "typeLabel": "Ring",
+    "expansion": "JW",
+    "description": "Legendary Ring.",
+    "defaultIcon": "https://render.guildwars2.com/file/2869C8BF337BBA66173504119A0380C7BB13EB31/3745902.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Endless_Summer",
+    "pieceIds": [
+      107022
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 107022,
+        "name": "Endless Summer",
+        "icon": "https://render.guildwars2.com/file/2869C8BF337BBA66173504119A0380C7BB13EB31/3745902.png"
+      }
+    ]
+  },
+  {
+    "id": "stella-radians",
+    "gw2ItemId": 109070,
+    "name": "Stella Radians",
+    "category": "trinkets",
+    "subCategory": "accessory",
+    "typeLabel": "Accessory",
+    "expansion": "VoE",
+    "description": "Candidates for Divitium Nava were bestowed this star as a badge of recognition.",
+    "defaultIcon": "https://render.guildwars2.com/file/2E4C9D4766C40BB9CBAE28749D78B7B32A9CE608/3769859.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Stella_Radians",
+    "pieceIds": [
+      109070
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 109070,
+        "name": "Stella Radians",
+        "icon": "https://render.guildwars2.com/file/2E4C9D4766C40BB9CBAE28749D78B7B32A9CE608/3769859.png"
+      }
+    ]
+  },
+  {
+    "id": "strife-unending",
+    "gw2ItemId": 109012,
+    "name": "Strife Unending",
+    "category": "trinkets",
+    "subCategory": "accessory",
+    "typeLabel": "Accessory",
+    "expansion": "VoE",
+    "description": "Legendary Accessory.",
+    "defaultIcon": "https://render.guildwars2.com/file/5B3A01AC083B965D2077F2D402D00847E2D41B01/3769860.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Strife_Unending",
+    "pieceIds": [
+      109012
+    ],
+    "maxCount": 2,
+    "pieces": [
+      {
+        "id": 109012,
+        "name": "Strife Unending",
+        "icon": "https://render.guildwars2.com/file/5B3A01AC083B965D2077F2D402D00847E2D41B01/3769860.png"
+      }
+    ]
+  },
+  {
+    "id": "aurora",
+    "gw2ItemId": 81908,
+    "name": "Aurora",
+    "category": "trinkets",
+    "subCategory": "accessory",
+    "typeLabel": "Accessory",
+    "expansion": "PoF",
+    "description": "Legendary Accessory.",
+    "defaultIcon": "https://render.guildwars2.com/file/2E5391DBF100D5A4413A07C3A13FC3513F29C394/1729332.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Aurora",
+    "pieceIds": [
+      81908
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 81908,
+        "name": "Aurora",
+        "icon": "https://render.guildwars2.com/file/2E5391DBF100D5A4413A07C3A13FC3513F29C394/1729332.png"
+      }
+    ]
+  },
+  {
+    "id": "coalescence",
+    "gw2ItemId": 91234,
+    "name": "Coalescence",
+    "category": "trinkets",
+    "subCategory": "ring",
+    "typeLabel": "Ring",
+    "expansion": "PoF",
+    "description": "Swirls around your finger, a constant reminder of the impact an individual can have.",
+    "defaultIcon": "https://render.guildwars2.com/file/962F99162FDE4AF471DF9E3BCA712CD6F5050B53/2149899.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Coalescence",
+    "pieceIds": [
+      91234
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 91234,
+        "name": "Coalescence",
+        "icon": "https://render.guildwars2.com/file/962F99162FDE4AF471DF9E3BCA712CD6F5050B53/2149899.png"
+      }
+    ]
+  },
+  {
+    "id": "legendary-rune",
+    "gw2ItemId": 91536,
+    "name": "Legendary Rune",
+    "category": "runes_sigils_relics",
+    "subCategory": "rune",
+    "typeLabel": "Rune",
+    "expansion": "EoD",
+    "description": "Legendary Rune.",
+    "defaultIcon": "https://render.guildwars2.com/file/3CEECEBACCC4E7D25DBC79C7A4B5B2933AB01DE3/2179567.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Legendary_Rune",
+    "pieceIds": [
+      91536
+    ],
+    "maxCount": 7,
+    "pieces": [
+      {
+        "id": 91536,
+        "name": "Legendary Rune",
+        "icon": "https://render.guildwars2.com/file/3CEECEBACCC4E7D25DBC79C7A4B5B2933AB01DE3/2179567.png"
+      }
+    ]
+  },
+  {
+    "id": "legendary-sigil",
+    "gw2ItemId": 91505,
+    "name": "Legendary Sigil",
+    "category": "runes_sigils_relics",
+    "subCategory": "sigil",
+    "typeLabel": "Sigil",
+    "expansion": "EoD",
+    "description": "Legendary Sigil.",
+    "defaultIcon": "https://render.guildwars2.com/file/2DDB0E173860AD433DF6D8AF412FDAFB9BCC4FB9/2179569.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Legendary_Sigil",
+    "pieceIds": [
+      91505
+    ],
+    "maxCount": 8,
+    "pieces": [
+      {
+        "id": 91505,
+        "name": "Legendary Sigil",
+        "icon": "https://render.guildwars2.com/file/2DDB0E173860AD433DF6D8AF412FDAFB9BCC4FB9/2179569.png"
+      }
+    ]
+  },
+  {
+    "id": "legendary-relic",
+    "gw2ItemId": 101582,
+    "name": "Legendary Relic",
+    "category": "runes_sigils_relics",
+    "subCategory": "relic",
+    "typeLabel": "Relic",
+    "expansion": "SOTO",
+    "description": "Unused Relic Effect Slot",
+    "defaultIcon": "https://render.guildwars2.com/file/08DED07BF6DF37E69A08D1C49D9C45D81BD8A5CA/3255567.png",
+    "wikiUrl": "https://wiki.guildwars2.com/wiki/Legendary_Relic",
+    "pieceIds": [
+      101582
+    ],
+    "maxCount": 1,
+    "pieces": [
+      {
+        "id": 101582,
+        "name": "Legendary Relic",
+        "icon": "https://render.guildwars2.com/file/08DED07BF6DF37E69A08D1C49D9C45D81BD8A5CA/3255567.png"
+      }
+    ]
+  }
+]
