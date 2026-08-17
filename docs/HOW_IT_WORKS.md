@@ -8,7 +8,7 @@ GW2 Leggy is a **standalone** companion: the UI runs in an Android WebView (Capa
 |-----|-----------------|--------------|
 | **Legendaries** | Full catalog (~99), search, filters, pins, crafting trees + TP prices | Armory unlock counts, “Unlocked” filter, stash-aware mat quantities in craft trees |
 | **Stash** | Prompt to connect | Bank tabs, shared inventory, material storage, character bags |
-| **Inst** | Prompt to connect | Weekly raid/strike clears, fractal weeklies (dailies when ArenaNet allows), daily dungeon paths |
+| **Inst** | Prompt to connect | Weekly raid/strike clears, daily + weekly fractals, daily dungeon paths |
 | **Vault** | Prompt to connect | Wizard’s Vault daily / weekly / special + Astral Acclaim |
 
 Bottom nav switches tabs. Header **Connect API Key** opens the key sheet from anywhere.
@@ -59,7 +59,7 @@ After sync: browse bank, shared slots, materials, and each character’s bags wi
 
 After sync (needs `progression`):
 
-- **Fractals** — weekly Initiate/Adept/Expert/Master fighters; daily scales when `/achievements/daily` is active
+- **Fractals** — tap weekly Initiate/Adept/Expert/Master fighters to see remaining unique fractals (from achievement bits); today’s daily tiers + recommended from `/achievements/categories/88`
 - **Raids** — each wing/encounter cleared this week (`/account/raids`)
 - **Strikes** — former strike missions checked against the same weekly clear list
 - **Dungeons** — explorable path clears since daily reset
