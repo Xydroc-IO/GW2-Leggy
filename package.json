@@ -1,0 +1,23 @@
+{
+  "name": "gw2-leggy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GW2 Leggy — Guild Wars 2 legendary tracker Android app",
+  "scripts": {
+    "build:web": "npm --prefix web run build",
+    "sync": "npm run build:web && npx cap sync android",
+    "build:apk": "npm run sync && cd android && ./gradlew assembleRelease",
+    "build:aab": "npm run sync && cd android && ./gradlew bundleRelease",
+    "build:release": "npm run sync && cd android && ./gradlew assembleRelease bundleRelease",
+    "build:debug": "npm run sync && cd android && ./gradlew assembleDebug",
+    "open:android": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/preferences": "^6.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0"
+  }
+}

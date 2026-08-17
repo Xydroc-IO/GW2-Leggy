@@ -1,0 +1,15 @@
+node_modules/
+.idea/
+*.iml
+.gradle/
+**/local.properties
+**/build/
+*.apk
+!GW2-Leggy.apk
+.DS_Store
+.capacitor/
+
+# Signing secrets — keep only the example file in git
+keystore/*.keystore
+keystore/keystore.properties
+!keystore/keystore.properties.example

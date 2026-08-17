@@ -1,0 +1,11 @@
+{
+  "appId": "com.gw2leggy.app",
+  "appName": "GW2 Leggy",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}

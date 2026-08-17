@@ -1,0 +1,30 @@
+---
+description: GW2 Leggy UI was redesigned — keep the new look; do not restore the old dashboard UI
+alwaysApply: true
+---
+
+# GW2 Leggy — UI refresh (Aug 2026)
+
+The web UI was rebuilt. **Do not revert to the old look** (large account/armory/craft dashboard cards, tall crafting-progress list cards, 78-item catalog with wrong icons/IDs).
+
+## Current look (source of truth)
+
+- Source: `web/` (Vite + React). Built output: `dist/` → Capacitor Android WebView.
+- Styles: `web/src/styles.css` — dark charcoal, gold brand (`Cinzel`), purple tracker badge, compact list rows.
+- Main UI: `web/src/App.tsx` — sticky search/filters, category tabs, expansion chips (Core→VoE), gen filters, pin, API key sync.
+- Related: `CraftingBreakdown.tsx`, `StashView.tsx` — keep these visually consistent with the compact theme when editing.
+
+## Catalog / icons
+
+- Legendaries live in `web/src/data/legendaries.json` (official GW2 API names, `gw2ItemId`, `defaultIcon`).
+- ~99 trackable entries (weapons, armor sets, backs, trinkets, rune/sigil/relic) — **not** the old mismatched 78-item list.
+- Prefer API render URLs; don’t reintroduce swapped gen1 IDs/icons from the pre-rebuild bundle.
+
+## After UI changes
+
+```bash
+cd web && npm run build   # writes to ../dist
+cd .. && npx cap sync android
+```
+
+If preview looks like the old “0 / 78” dashboard, hard-refresh — stale JS cache.
